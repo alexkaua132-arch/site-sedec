@@ -1,0 +1,159 @@
+/* =====================================
+   DESENVOLVIMENTO ECONÔMICO
+===================================== */
+
+/* Título */
+
+.titulo-sobre span{
+
+    color:#2e7d32;
+
+}
+
+.titulo-sobre h1{
+
+    color:#1b4332;
+
+}
+
+/* Botão */
+
+.botao{
+
+    display:inline-block;
+
+    margin-top:30px;
+
+    padding:14px 30px;
+
+    background:#2e7d32;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    border-radius:10px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.botao:hover{
+
+    background:#1b5e20;
+
+    transform:translateY(-4px);
+
+}
+
+/* Cards */
+
+.mini-card{
+
+    transition:.35s;
+
+}
+
+.mini-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 12px 28px rgba(0,0,0,.15);
+
+}
+
+.mini-card.azul{
+
+    border-left:5px solid #2e7d32;
+
+}
+
+.mini-card.amarelo{
+
+    border-left:5px solid #f9a825;
+
+}
+
+/* Contador */
+
+.contador{
+
+    border-left:6px solid #2e7d32;
+
+}
+
+.contador h2{
+
+    color:#2e7d32;
+
+}
+
+/* Cards de atuação */
+
+.valor{
+
+    transition:.35s;
+
+}
+
+.valor:hover{
+
+    background:#2e7d32;
+
+    transform:translateY(-8px);
+
+}
+
+.valor:hover h3,
+
+.valor:hover p{
+
+    color:#fff;
+
+}
+
+/* Seções */
+
+.tecnologias{
+
+    padding:90px 8%;
+
+    background:#fff;
+
+}
+
+.tecnologias h2{
+
+    text-align:center;
+
+    color:#1b4332;
+
+    font-size:34px;
+
+    margin-bottom:45px;
+
+}
+
+/* Responsividade */
+
+@media(max-width:900px){
+
+    .sobre-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:600px){
+
+    .titulo-sobre h1{
+
+        font-size:32px;
+
+    }
+
+}

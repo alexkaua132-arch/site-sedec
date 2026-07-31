@@ -968,18 +968,14 @@ grid-template-columns:1fr;
 #projetos{
 
     padding:100px 8%;
-
     background:#f8fafc;
 
 }
 
 
-/* TÍTULO DA SEÇÃO */
-
 .titulo-projetos{
 
     text-align:center;
-
     margin-bottom:60px;
 
 }
@@ -988,16 +984,9 @@ grid-template-columns:1fr;
 .titulo-projetos span{
 
     color:#1976d2;
-
     font-size:13px;
-
     font-weight:700;
-
     letter-spacing:2px;
-
-    display:block;
-
-    margin-bottom:10px;
 
 }
 
@@ -1005,27 +994,26 @@ grid-template-columns:1fr;
 #projetos .titulo{
 
     color:#1e293b;
-
     font-size:36px;
-
-    margin-bottom:0;
 
 }
 
 
-/* GRID DOS PROJETOS */
+/* GRID */
 
 .cards-projetos{
 
     display:grid;
 
-    grid-template-columns:repeat(auto-fit, minmax(280px, 320px));
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,320px));
 
     justify-content:center;
 
     gap:30px;
 
 }
+
 
 
 /* CARD */
@@ -1038,27 +1026,40 @@ grid-template-columns:1fr;
 
     border-radius:18px;
 
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.08);
 
-    transition:.35s;
+    transition:.3s;
 
     border-top:5px solid #073f77;
 
 }
 
 
-/* EFEITO HOVER */
-
 .card-projeto:hover{
 
     transform:translateY(-10px);
 
-    box-shadow:0 20px 40px rgba(0,0,0,.15);
+    box-shadow:
+    0 20px 40px rgba(0,0,0,.15);
 
 }
 
 
-/* TÍTULO DO CARD */
+
+/* LINK */
+
+.link-projeto{
+
+    text-decoration:none;
+
+    color:inherit;
+
+    display:block;
+
+}
+
+
 
 .card-projeto h3{
 
@@ -1071,49 +1072,12 @@ grid-template-columns:1fr;
 }
 
 
-/* TEXTO DO CARD */
 
 .card-projeto p{
 
     color:#666;
 
     line-height:28px;
-
-    font-size:16px;
-
-}
-
-
-
-/* =====================================
-   RESPONSIVIDADE
-===================================== */
-
-@media(max-width:900px){
-
-    #projetos{
-
-        padding:80px 5%;
-
-    }
-
-
-    #projetos .titulo{
-
-        font-size:30px;
-
-    }
-
-}
-
-
-@media(max-width:600px){
-
-    .card-projeto h3{
-
-        font-size:20px;
-
-    }
 
 }
 
@@ -1947,7 +1911,7 @@ footer::before {
 
 .sobre{
 
-padding:140px 8% 80px;
+padding:170px 8% 80px;
 
 background:#f8fafc;
 
@@ -1990,6 +1954,7 @@ max-width:800px;
 margin:auto;
 
 color:#666;
+;
 
 line-height:30px;
 
@@ -2289,5 +2254,87 @@ font-size:32px;
     font-size: 15px;
 
     margin: 0;
+
+}
+
+/* =====================================
+   HEADER
+===================================== */
+
+header{
+
+    width:100%;
+
+    background:#0d47a1; /* Altere esta cor se desejar */
+
+    color:#fff;
+
+    padding:18px 8%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    z-index:1000;
+
+    box-shadow:0 4px 10px rgba(0,0,0,.15);
+
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.logo img{
+
+    width:180px;
+
+    height:auto;
+
+}
+
+.logo h1{
+
+    font-size:28px;
+
+}
+
+nav{
+
+    display:flex;
+
+    gap:25px;
+
+}
+
+nav a{
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+nav a:hover{
+
+    color:#90caf9;
 
 }

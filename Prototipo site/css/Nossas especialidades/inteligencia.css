@@ -1,0 +1,145 @@
+/* =====================================
+   Inteligência de Negócios
+===================================== */
+
+/* Destaque do título */
+
+.titulo-sobre span{
+
+    color:#1565c0;
+
+}
+
+
+/* Botão */
+
+.botao{
+
+    display:inline-block;
+
+    margin-top:30px;
+
+    padding:14px 30px;
+
+    background:#1565c0;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    border-radius:10px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.botao:hover{
+
+    background:#0d47a1;
+
+    transform:translateY(-3px);
+
+}
+
+
+/* Cards */
+
+.mini-card{
+
+    transition:.35s;
+
+}
+
+.mini-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 12px 30px rgba(0,0,0,.12);
+
+}
+
+
+/* Cards de benefícios */
+
+.valor{
+
+    transition:.35s;
+
+}
+
+.valor:hover{
+
+    background:#1565c0;
+
+    color:#fff;
+
+}
+
+.valor:hover h3,
+
+.valor:hover p{
+
+    color:#fff;
+
+}
+
+
+/* Contador */
+
+.contador{
+
+    border-left:6px solid #1565c0;
+
+}
+
+.contador h2{
+
+    color:#1565c0;
+
+}
+
+
+/* Seções */
+
+.tecnologias{
+
+    padding:90px 8%;
+
+}
+
+.tecnologias h2{
+
+    text-align:center;
+
+    color:#003366;
+
+    font-size:34px;
+
+    margin-bottom:45px;
+
+}
+
+
+/* Responsividade */
+
+@media(max-width:900px){
+
+    .sobre-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:600px){
+
+    .titulo-sobre h1{
+
+        font-size:32px;
+
+    }
+
+}

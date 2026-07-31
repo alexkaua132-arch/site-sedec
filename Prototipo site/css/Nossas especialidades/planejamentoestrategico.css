@@ -1,0 +1,159 @@
+/* =====================================
+   PLANEJAMENTO ESTRATÉGICO
+===================================== */
+
+/* Título */
+
+.titulo-sobre span{
+
+    color:#6a1b9a;
+
+}
+
+.titulo-sobre h1{
+
+    color:#4a148c;
+
+}
+
+/* Botão */
+
+.botao{
+
+    display:inline-block;
+
+    margin-top:30px;
+
+    padding:14px 30px;
+
+    background:#6a1b9a;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    border-radius:10px;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+.botao:hover{
+
+    background:#4a148c;
+
+    transform:translateY(-4px);
+
+}
+
+/* Mini Cards */
+
+.mini-card{
+
+    transition:.35s;
+
+}
+
+.mini-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 12px 28px rgba(0,0,0,.15);
+
+}
+
+.mini-card.azul{
+
+    border-left:5px solid #6a1b9a;
+
+}
+
+.mini-card.amarelo{
+
+    border-left:5px solid #ffb300;
+
+}
+
+/* Contador */
+
+.contador{
+
+    border-left:6px solid #6a1b9a;
+
+}
+
+.contador h2{
+
+    color:#6a1b9a;
+
+}
+
+/* Cards inferiores */
+
+.valor{
+
+    transition:.35s;
+
+}
+
+.valor:hover{
+
+    background:#6a1b9a;
+
+    transform:translateY(-8px);
+
+}
+
+.valor:hover h3,
+
+.valor:hover p{
+
+    color:#fff;
+
+}
+
+/* Seções */
+
+.tecnologias{
+
+    padding:90px 8%;
+
+    background:#ffffff;
+
+}
+
+.tecnologias h2{
+
+    text-align:center;
+
+    color:#4a148c;
+
+    font-size:34px;
+
+    margin-bottom:45px;
+
+}
+
+/* Responsividade */
+
+@media(max-width:900px){
+
+    .sobre-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:600px){
+
+    .titulo-sobre h1{
+
+        font-size:32px;
+
+    }
+
+}

@@ -1,0 +1,259 @@
+/* =====================================
+   MeioAmbiente
+===================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+    color:#333;
+    line-height:1.7;
+}
+
+/* =====================================
+   HEADER
+===================================== */
+
+header{
+    background:#1B5E20;
+    color:#fff;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 4px 10px rgba(0,0,0,.15);
+}
+
+.logo h1{
+    font-size:30px;
+    letter-spacing:1px;
+}
+
+nav a{
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#C8E6C9;
+}
+
+/* =====================================
+   HERO
+===================================== */
+
+.hero{
+    height:430px;
+    background:
+        linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+        url("../imagem/meioambiente.jpg");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:#fff;
+    padding:20px;
+}
+
+.hero-texto h2{
+    font-size:50px;
+    margin-bottom:15px;
+}
+
+.hero-texto p{
+    font-size:20px;
+    max-width:700px;
+    margin:auto;
+}
+
+/* =====================================
+   CONTEÚDO
+===================================== */
+
+.conteudo{
+    padding:70px 0;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+.container h2{
+    color:#1B5E20;
+    font-size:34px;
+    margin-bottom:20px;
+}
+
+.container p{
+    font-size:17px;
+    text-align:justify;
+    margin-bottom:18px;
+}
+
+/* =====================================
+   CARDS
+===================================== */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    margin-top:40px;
+}
+
+.card{
+    background:#fff;
+    border-radius:15px;
+    padding:30px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h3{
+    color:#1B5E20;
+    margin-bottom:15px;
+    font-size:22px;
+}
+
+.card p{
+    margin:0;
+    text-align:left;
+}
+
+/* =====================================
+   BENEFÍCIOS
+===================================== */
+
+.beneficios{
+    margin-top:60px;
+    background:#fff;
+    border-radius:15px;
+    padding:35px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.beneficios h2{
+    color:#1B5E20;
+    margin-bottom:20px;
+}
+
+.beneficios ul{
+    margin-left:25px;
+}
+
+.beneficios li{
+    margin-bottom:12px;
+    font-size:17px;
+}
+
+/* =====================================
+   BOTÃO
+===================================== */
+
+.voltar{
+    text-align:center;
+    margin-top:50px;
+}
+
+.btn{
+    display:inline-block;
+    background:#1B5E20;
+    color:#fff;
+    text-decoration:none;
+    padding:15px 35px;
+    border-radius:8px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#2E7D32;
+    transform:translateY(-3px);
+}
+
+/* =====================================
+   FOOTER
+===================================== */
+
+footer{
+    margin-top:60px;
+    background:#1B5E20;
+    color:#fff;
+    text-align:center;
+    padding:25px;
+}
+
+/* =====================================
+   RESPONSIVIDADE
+===================================== */
+
+@media(max-width:768px){
+
+    header{
+        flex-direction:column;
+        gap:15px;
+        text-align:center;
+    }
+
+    .hero{
+        height:320px;
+    }
+
+    .hero-texto h2{
+        font-size:34px;
+    }
+
+    .hero-texto p{
+        font-size:17px;
+    }
+
+    .container h2{
+        font-size:28px;
+    }
+
+    .card{
+        padding:25px;
+    }
+
+    .beneficios{
+        padding:25px;
+    }
+
+    .btn{
+        width:100%;
+        text-align:center;
+    }
+
+}
+
+/* =====================================
+   RESET
+===================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+    color:#333;
+    line-height:1.7;
+}
