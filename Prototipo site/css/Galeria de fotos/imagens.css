@@ -1,0 +1,1070 @@
+
+/* =====================================
+   GALERIA SEDEC
+===================================== */
+/* =====================================
+   HERO DA GALERIA
+===================================== *
+
+.hero-galeria {
+
+    min-height: 55vh;
+
+    /* Compensa o header fixo de 90px *
+    padding:
+        90px 8% 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    position: relative;
+
+    background:
+
+        linear-gradient(
+            rgba(0, 43, 69, 0.78),
+            rgba(0, 43, 69, 0.78)
+        ),
+
+   url("../img/hero-galeria/geo.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    color: white;
+
+}
+
+
+/* =====================================
+   CONTEÚDO DO HERO
+===================================== *
+.hero-conteudo {
+
+    max-width: 800px;
+
+    margin-top: 20px;
+
+}
+
+
+/* =====================================
+   TEXTO PEQUENo
+===================================== *
+
+.hero-conteudo span {
+
+    display: inline-block;
+
+    margin-bottom: 15px;
+
+    color: #64d9e5;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+}
+
+
+/* =====================================
+   TÍTULO
+===================================== *
+
+.hero-conteudo h1 {
+
+    margin: 0 0 20px;
+
+    color: white;
+
+    font-size: 60px;
+
+    font-weight: 700;
+
+    line-height: 1.1;
+
+}
+
+
+/* =====================================
+   DESCRIÇÃO
+===================================== *
+
+.hero-conteudo p {
+
+    max-width: 650px;
+
+    margin: 0 auto;
+
+    color: #f1f1f1;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+}
+
+
+/* =====================================
+   HEADER PADRÃO SEDEC
+===================================== *
+
+header {
+
+    width: 100%;
+
+    height: 90px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 60px;
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    z-index: 1000;
+
+    background: rgba(0, 0, 0, .35);
+
+    backdrop-filter: blur(8px);
+
+}
+
+
+/* =====================================
+   LOGO
+===================================== *
+
+.logo {
+
+    width: 150px;
+
+    height: auto;
+
+}
+
+
+/* =====================================
+   MENU
+===================================== *
+
+nav {
+
+    display: flex;
+
+    gap: 45px;
+
+}
+
+
+nav a {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: .3s;
+
+}
+
+
+nav a:hover {
+
+    color: #00a8ff;
+
+}
+
+
+/* =====================================
+   RESPONSIVIDADE
+===================================== *
+
+@media (max-width: 900px) {
+
+    header {
+
+        padding: 0 30px;
+
+    }
+
+
+    nav {
+
+        gap: 25px;
+
+    }
+
+
+    .hero-conteudo h1 {
+
+        font-size: 50px;
+
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    header {
+
+        height: 75px;
+
+        padding: 0 20px;
+
+    }
+
+
+    .logo {
+
+        width: 120px;
+
+    }
+
+
+    nav {
+
+        display: none;
+
+    }
+
+
+    .hero-galeria {
+
+        min-height: 60vh;
+
+        padding:
+
+            75px 25px 60px;
+
+    }
+
+
+    .hero-conteudo {
+
+        margin-top: 10px;
+
+    }
+
+
+    .hero-conteudo h1 {
+
+        font-size: 40px;
+
+    }
+
+
+    .hero-conteudo p {
+
+        font-size: 16px;
+
+    }
+
+}
+
+/* =====================================
+   HERO DA GALERIA
+===================================== */
+
+.hero-galeria {
+
+    width: 100%;
+
+    min-height: 55vh;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 100px 8% 70px;
+
+    overflow: hidden;
+
+}
+
+
+/* =====================================
+   IMAGEM DE FUNDO
+===================================== */
+
+.hero-galeria .fundo {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    z-index: 0;
+
+}
+
+
+/* =====================================
+   CAMADA ESCURA SOBRE A IMAGEM
+===================================== */
+
+.hero-galeria::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        rgba(0, 43, 69, 0.70);
+
+    z-index: 1;
+
+}
+
+
+/* =====================================
+   CONTEÚDO
+===================================== */
+
+.hero-conteudo {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 850px;
+
+    margin-top: 20px;
+
+}
+
+
+/* =====================================
+   IDENTIFICAÇÃO
+===================================== */
+
+.hero-conteudo span {
+
+    display: inline-block;
+
+    margin-bottom: 15px;
+
+    color: #64d9e5;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* =====================================
+   TÍTULO
+===================================== */
+
+.hero-conteudo h1 {
+
+    margin: 0 0 20px;
+
+    color: white;
+
+    font-size: 60px;
+
+    font-weight: 700;
+
+    line-height: 1.1;
+
+}
+
+
+/* =====================================
+   DESCRIÇÃO
+===================================== */
+
+.hero-conteudo p {
+
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    color: #f1f1f1;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+}
+
+
+/* =====================================
+   RESPONSIVIDADE
+===================================== */
+
+@media (max-width: 900px) {
+
+    .hero-galeria {
+
+        min-height: 50vh;
+
+    }
+
+
+    .hero-conteudo h1 {
+
+        font-size: 50px;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .hero-galeria {
+
+        min-height: 55vh;
+
+        padding: 80px 25px 60px;
+
+    }
+
+
+    .hero-conteudo h1 {
+
+        font-size: 40px;
+
+    }
+
+
+    .hero-conteudo span {
+
+        font-size: 11px;
+
+        letter-spacing: 1.5px;
+
+    }
+
+
+    .hero-conteudo p {
+
+        font-size: 16px;
+
+    }
+
+}
+
+/* =====================================
+   CONTAINER DA GALERIA
+===================================== */
+
+.galeria-container {
+
+    width: 100%;
+
+    max-width: 1250px;
+
+    margin: 0 auto;
+
+    padding: 90px 30px;
+
+}
+
+
+/* =====================================
+   TÍTULO
+===================================== */
+
+.galeria-titulo {
+
+    text-align: center;
+
+    margin-bottom: 45px;
+
+}
+
+
+.galeria-titulo span {
+
+    display: inline-block;
+
+    margin-bottom: 10px;
+
+    color: #0099cc;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+}
+
+
+.galeria-titulo h2 {
+
+    margin: 0 0 15px;
+
+    color: #003b5c;
+
+    font-size: 42px;
+
+}
+
+
+.galeria-titulo p {
+
+    margin: 0;
+
+    color: #666;
+
+    font-size: 17px;
+
+}
+
+
+/* =====================================
+   FILTROS
+===================================== */
+
+.filtros {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-bottom: 45px;
+
+}
+
+
+.filtro {
+
+    padding: 11px 22px;
+
+    border: 2px solid #0099cc;
+
+    border-radius: 30px;
+
+    background: transparent;
+
+    color: #003b5c;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+}
+
+
+.filtro:hover {
+
+    background: #0099cc;
+
+    color: white;
+
+    transform: translateY(-2px);
+
+}
+
+
+.filtro.ativo {
+
+    background: #003b5c;
+
+    border-color: #003b5c;
+
+    color: white;
+
+}
+
+
+/* =====================================
+   GRID DA GALERIA
+===================================== */
+
+.galeria-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+}
+
+
+/* =====================================
+   ITEM DA GALERIA
+===================================== */
+
+.galeria-item {
+
+    position: relative;
+
+    height: 320px;
+
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    background: #eee;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.12);
+
+    cursor: pointer;
+
+    animation: aparecer 0.6s ease;
+
+}
+
+
+.galeria-item img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.6s ease;
+
+}
+
+
+/* =====================================
+   OVERLAY
+===================================== */
+
+.galeria-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    padding: 30px;
+
+    background:
+        linear-gradient(
+            transparent 30%,
+            rgba(0, 43, 69, 0.92)
+        );
+
+    color: white;
+
+    opacity: 0;
+
+    transition:
+        opacity 0.4s ease;
+
+}
+
+
+.galeria-item:hover .galeria-overlay {
+
+    opacity: 1;
+
+}
+
+
+.galeria-item:hover img {
+
+    transform: scale(1.08);
+
+}
+
+
+.galeria-overlay span {
+
+    margin-bottom: 7px;
+
+    color: #64d9e5;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+}
+
+
+.galeria-overlay h3 {
+
+    margin: 0 0 15px;
+
+    font-size: 21px;
+
+}
+
+
+/* =====================================
+   BOTÃO VER IMAGEM
+===================================== */
+
+.abrir-imagem {
+
+    width: fit-content;
+
+    padding: 9px 18px;
+
+    border: 1px solid rgba(255,255,255,0.6);
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.12);
+
+    color: white;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(5px);
+
+    transition: all 0.3s ease;
+
+}
+
+
+.abrir-imagem:hover {
+
+    background: white;
+
+    color: #003b5c;
+
+}
+
+
+/* =====================================
+   MODAL
+===================================== */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 30px;
+
+    background: rgba(0, 20, 35, 0.92);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+
+}
+
+
+.modal.ativo {
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+
+/* =====================================
+   CONTEÚDO DO MODAL
+===================================== */
+
+.modal-conteudo {
+
+    max-width: 1000px;
+
+    max-height: 90vh;
+
+    text-align: center;
+
+}
+
+
+.modal-conteudo img {
+
+    max-width: 100%;
+
+    max-height: 75vh;
+
+    display: block;
+
+    margin: auto;
+
+    border-radius: 15px;
+
+    object-fit: contain;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.5);
+
+}
+
+
+.modal-conteudo h3 {
+
+    margin-top: 18px;
+
+    color: white;
+
+    font-size: 20px;
+
+}
+
+
+/* =====================================
+   BOTÃO FECHAR
+===================================== */
+
+.fechar-modal {
+
+    position: absolute;
+
+    top: 25px;
+
+    right: 35px;
+
+    width: 50px;
+
+    height: 50px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.12);
+
+    color: white;
+
+    font-size: 35px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+}
+
+
+.fechar-modal:hover {
+
+    background: white;
+
+    color: #003b5c;
+
+    transform: rotate(90deg);
+
+}
+
+
+/* =====================================
+   ANIMAÇÃO
+===================================== */
+
+@keyframes aparecer {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+/* =====================================
+   TABLET
+===================================== */
+
+@media (max-width: 1000px) {
+
+    .galeria-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .hero-conteudo h1 {
+
+        font-size: 50px;
+
+    }
+
+}
+
+
+/* =====================================
+   CELULAR
+===================================== */
+
+@media (max-width: 650px) {
+
+    .hero-galeria {
+
+        min-height: 45vh;
+
+        padding: 120px 20px 60px;
+
+    }
+
+
+    .hero-conteudo h1 {
+
+        font-size: 40px;
+
+    }
+
+
+    .hero-conteudo p {
+
+        font-size: 16px;
+
+    }
+
+
+    .galeria-container {
+
+        padding: 60px 20px;
+
+    }
+
+
+    .galeria-titulo h2 {
+
+        font-size: 32px;
+
+    }
+
+
+    .galeria-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .galeria-item {
+
+        height: 280px;
+
+    }
+
+
+    .filtros {
+
+        gap: 8px;
+
+    }
+
+
+    .filtro {
+
+        padding: 9px 16px;
+
+        font-size: 13px;
+
+    }
+
+
+    .modal {
+
+        padding: 15px;
+
+    }
+
+
+    .fechar-modal {
+
+        top: 15px;
+
+        right: 15px;
+
+        width: 42px;
+
+        height: 42px;
+
+        font-size: 28px;
+
+    }
+
+}

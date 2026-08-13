@@ -1,33 +1,76 @@
-/* =====================================
-   Inteligência de Negócios
-===================================== */
+/* =====================================================
+   INTELIGÊNCIA DE NEGÓCIOS - SEDEC
+===================================================== */
 
-/* Destaque do título */
 
-.titulo-sobre span{
+*{
 
-    color:#1565c0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 
 }
 
 
-/* Botão */
+body{
 
-.botao{
+background:#f4f8fb;
 
-    display:inline-block;
+color:#333;
 
-    margin-top:30px;
+}
 
-    padding:14px 30px;
+/* ==========================================
+                HEADER PADRÃO
+========================================== */
 
-    background:#1565c0;
+header{
 
-    color:#fff;
+    width:100%;
+    height:90px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 60px;
+
+    position:fixed;
+    top:0;
+    left:0;
+
+    z-index:1000;
+
+    background:rgba(0,0,0,.35);
+
+    backdrop-filter:blur(8px);
+
+}
+
+/* LOGO */
+
+.logo{
+
+    width:150px;
+    height:auto;
+
+}
+
+/* MENU */
+
+nav{
+
+    display:flex;
+    gap:45px;
+
+}
+
+nav a{
+
+    color:white;
 
     text-decoration:none;
 
-    border-radius:10px;
+    font-size:13px;
 
     font-weight:600;
 
@@ -35,111 +78,898 @@
 
 }
 
-.botao:hover{
+nav a:hover{
 
-    background:#0d47a1;
+    color:#00a8ff;
 
-    transform:translateY(-3px);
+}
+
+/* =====================================================
+   HERO BI
+===================================================== */
+
+
+.hero-bi{
+
+
+height:600px;
+
+
+background:
+
+linear-gradient(
+rgba(0,45,80,.85),
+rgba(0,140,190,.75)
+),
+
+url("../../img/dados1.png");
+
+
+background-size:cover;
+
+background-position:center;
+
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+
+text-align:center;
+
+color:white;
+
+
+padding:30px;
+
 
 }
 
 
-/* Cards */
 
-.mini-card{
+.hero-conteudo{
 
-    transition:.35s;
 
-}
+max-width:900px;
 
-.mini-card:hover{
-
-    transform:translateY(-8px);
-
-    box-shadow:0 12px 30px rgba(0,0,0,.12);
 
 }
 
 
-/* Cards de benefícios */
 
-.valor{
+.hero-conteudo span{
 
-    transition:.35s;
 
-}
+letter-spacing:4px;
 
-.valor:hover{
+font-size:15px;
 
-    background:#1565c0;
+color:#a9edff;
 
-    color:#fff;
+font-weight:600;
 
-}
-
-.valor:hover h3,
-
-.valor:hover p{
-
-    color:#fff;
 
 }
 
 
-/* Contador */
 
-.contador{
+.hero-conteudo h1{
 
-    border-left:6px solid #1565c0;
+
+font-size:55px;
+
+margin:25px 0;
+
+line-height:1.2;
+
 
 }
 
-.contador h2{
 
-    color:#1565c0;
+
+.hero-conteudo p{
+
+
+font-size:20px;
+
+line-height:1.8;
+
+
+}
+
+
+
+.btn{
+
+
+display:inline-block;
+
+margin-top:35px;
+
+padding:15px 40px;
+
+
+background:#00b4d8;
+
+
+color:white;
+
+
+border-radius:40px;
+
+
+text-decoration:none;
+
+
+font-weight:bold;
+
+
+transition:.3s;
+
 
 }
 
 
-/* Seções */
 
-.tecnologias{
+.btn:hover{
 
-    padding:90px 8%;
+
+background:white;
+
+color:#006b95;
+
+
+transform:translateY(-5px);
+
 
 }
 
-.tecnologias h2{
 
+
+
+
+
+/* =====================================================
+   INDICADORES
+===================================================== */
+
+.indicadores{
+
+    padding:80px 8%;
     text-align:center;
+    width:100%;
+    overflow:hidden;
 
-    color:#003366;
+}
 
-    font-size:34px;
 
+.indicadores h2{
+
+    font-size:38px;
+    color:#003b5c;
     margin-bottom:45px;
 
 }
 
 
-/* Responsividade */
+/* GRID CENTRALIZADO */
 
-@media(max-width:900px){
+.indicadores-grid{
 
-    .sobre-grid{
+    display:grid;
+    grid-template-columns:repeat(4, minmax(220px, 1fr));
+    gap:25px;
+    max-width:1200px;
+    margin:0 auto;
 
-        grid-template-columns:1fr;
+}
+
+
+/* CARD */
+
+.indicador{
+
+    background:white;
+
+    padding:35px 25px;
+
+    border-radius:20px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+    text-align:center;
+
+    min-width:0;
+
+}
+
+
+.indicador:hover{
+
+    transform:translateY(-10px);
+
+}
+
+
+/* NÚMEROS */
+
+.indicador h3{
+
+    font-size:40px;
+
+    color:#00a8df;
+
+    margin:0;
+
+}
+
+
+/* TEXTO */
+
+.indicador p{
+
+    margin-top:10px;
+
+    color:#666;
+
+    font-size:16px;
+
+}
+
+
+
+/* =====================================================
+   RESPONSIVIDADE
+===================================================== */
+
+
+@media(max-width:1000px){
+
+    .indicadores-grid{
+
+        grid-template-columns:repeat(2,1fr);
 
     }
 
 }
 
+
+
 @media(max-width:600px){
 
-    .titulo-sobre h1{
+    .indicadores{
 
-        font-size:32px;
+        padding:60px 5%;
 
     }
+
+
+    .indicadores h2{
+
+        font-size:30px;
+
+    }
+
+
+    .indicadores-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .indicador h3{
+
+        font-size:38px;
+
+    }
+
+}
+
+
+
+
+
+
+/* =====================================================
+   SOBRE BI
+===================================================== */
+
+
+.sobre-bi{
+
+
+padding:90px 8%;
+
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+
+gap:60px;
+
+
+align-items:center;
+
+
+}
+
+
+
+.texto span{
+
+
+color:#009bd1;
+
+font-weight:600;
+
+letter-spacing:3px;
+
+
+}
+
+
+
+.texto h2{
+
+
+font-size:42px;
+
+color:#003b5c;
+
+margin:20px 0;
+
+
+}
+
+
+
+.texto p{
+
+
+font-size:18px;
+
+line-height:2;
+
+margin-bottom:20px;
+
+
+}
+
+
+
+/* DASHBOARD VISUAL */
+
+.dashboard{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.painel{
+
+    background:#002b45;
+
+    width:100%;
+    padding:15px;
+
+    border-radius:25px;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
+
+    color:white;
+
+    overflow:hidden;
+
+}
+
+.painel h3{
+
+    text-align:center;
+    margin-bottom:15px;
+
+}
+
+.grafico{
+
+    background:transparent;
+
+    padding:0;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+}
+
+.dashboard-img{
+
+    width:100%;
+
+    height:auto;
+
+    max-height:400px;
+
+    display:block;
+
+    object-fit:contain;
+
+    border-radius:15px;
+
+    transition:.4s;
+
+}
+
+.dashboard-img:hover{
+
+    transform:scale(1.02);
+
+}
+
+
+
+
+
+
+/* =====================================================
+   PROCESSO
+===================================================== */
+
+
+.processo{
+
+
+padding:90px 8%;
+
+
+background:white;
+
+
+text-align:center;
+
+
+}
+
+
+
+.processo h2{
+
+
+font-size:40px;
+
+color:#003b5c;
+
+margin-bottom:50px;
+
+
+}
+
+
+
+.processo-grid{
+
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:25px;
+
+
+}
+
+
+
+.etapa{
+
+
+background:#f5faff;
+
+
+padding:35px;
+
+
+border-radius:20px;
+
+
+border-top:5px solid #00b4d8;
+
+
+transition:.3s;
+
+
+}
+
+
+
+.etapa:hover{
+
+
+background:#0077b6;
+
+color:white;
+
+
+transform:translateY(-10px);
+
+
+}
+
+
+
+.numero{
+
+
+width:60px;
+
+height:60px;
+
+
+background:#00b4d8;
+
+
+color:white;
+
+
+display:flex;
+
+
+align-items:center;
+
+
+justify-content:center;
+
+
+border-radius:50%;
+
+
+margin:auto;
+
+
+margin-bottom:20px;
+
+
+font-weight:bold;
+
+font-size:22px;
+
+
+}
+
+
+
+
+
+
+/* =====================================================
+   TECNOLOGIAS
+===================================================== */
+
+
+.tecnologias{
+
+
+padding:90px 8%;
+
+
+background:#eef7fb;
+
+
+text-align:center;
+
+
+}
+
+
+
+.tecnologias h2{
+
+
+font-size:40px;
+
+color:#003b5c;
+
+margin-bottom:45px;
+
+
+}
+
+
+
+.tecnologias-grid{
+
+
+display:grid;
+
+
+grid-template-columns:repeat(3,1fr);
+
+
+gap:25px;
+
+
+}
+
+
+
+.tecnologias-grid div{
+
+
+background:white;
+
+
+padding:35px;
+
+
+border-radius:20px;
+
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+
+font-size:40px;
+
+
+transition:.3s;
+
+
+}
+
+
+
+.tecnologias-grid div:hover{
+
+
+background:#00b4d8;
+
+
+color:white;
+
+
+transform:translateY(-10px);
+
+
+}
+
+
+
+.tecnologias-grid h3{
+
+
+font-size:20px;
+
+margin-top:15px;
+
+
+}
+
+
+
+
+
+
+/* =====================================================
+   BENEFÍCIOS
+===================================================== */
+
+
+.beneficios{
+
+
+padding:90px 8%;
+
+
+background:linear-gradient(135deg,#003b5c,#0077b6);
+
+
+color:white;
+
+
+text-align:center;
+
+
+}
+
+
+
+.beneficios h2{
+
+
+font-size:40px;
+
+margin-bottom:45px;
+
+
+}
+
+
+
+.beneficios-grid{
+
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:25px;
+
+
+}
+
+
+
+.card{
+
+
+background:white;
+
+
+color:#333;
+
+
+padding:35px;
+
+
+border-radius:20px;
+
+
+transition:.3s;
+
+
+}
+
+
+
+.card:hover{
+
+
+transform:translateY(-10px);
+
+
+}
+
+
+
+.card h3{
+
+
+color:#003b5c;
+
+margin-bottom:15px;
+
+
+}
+
+
+
+
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+
+footer{
+
+
+background:#00263d;
+
+
+color:white;
+
+
+padding:30px;
+
+
+text-align:center;
+
+
+}
+
+
+
+
+
+
+/* =====================================================
+   RESPONSIVO
+===================================================== */
+
+
+@media(max-width:1000px){
+
+
+.indicadores-grid,
+.processo-grid{
+
+
+grid-template-columns:repeat(2,1fr);
+
+
+}
+
+
+
+.tecnologias-grid{
+
+
+grid-template-columns:repeat(2,1fr);
+
+
+}
+
+
+
+.sobre-bi{
+
+
+grid-template-columns:1fr;
+
+
+}
+
+
+}
+
+
+
+
+@media(max-width:700px){
+
+
+
+.hero-bi{
+
+height:auto;
+
+padding:120px 20px;
+
+}
+
+
+
+.hero-conteudo h1{
+
+font-size:35px;
+
+}
+
+
+
+.hero-conteudo p{
+
+font-size:17px;
+
+}
+
+
+
+.indicadores-grid,
+.processo-grid,
+.tecnologias-grid,
+.beneficios-grid{
+
+
+grid-template-columns:1fr;
+
+
+}
+
+
+
+.texto h2{
+
+font-size:32px;
+
+}
+
 
 }

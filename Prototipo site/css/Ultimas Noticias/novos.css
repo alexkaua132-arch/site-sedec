@@ -1,0 +1,739 @@
+/* ==========================================
+   NOTÍCIA - MAPAS INTERATIVOS SEDEC
+   Estilo Portal de Notícias
+========================================== */
+
+
+/* RESET */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+body{
+
+    font-family:'Poppins', sans-serif;
+    background:#f5f7fb;
+    color:#333;
+
+}
+
+
+a{
+
+    text-decoration:none;
+    color:inherit;
+
+}
+
+
+
+
+
+/* ==========================================
+        HEADER
+========================================== */
+
+
+header{
+
+    width:100%;
+    height:85px;
+    background:white;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 8%;
+
+    box-shadow:0 3px 15px rgba(0,0,0,.08);
+
+    position:relative;
+    z-index:10;
+
+}
+
+
+
+.logo{
+
+    width:150px;
+
+}
+
+
+
+nav{
+
+    display:flex;
+    gap:25px;
+
+}
+
+
+nav a{
+
+    font-size:15px;
+    font-weight:500;
+    color:#183b63;
+
+    transition:.3s;
+
+}
+
+
+nav a:hover{
+
+    color:#0077ff;
+
+}
+
+
+
+
+
+
+/* ==========================================
+        BANNER PRINCIPAL
+========================================== */
+
+
+.noticia-banner{
+
+
+    min-height:430px;
+
+    background:
+
+    linear-gradient(
+        rgba(0,42,90,.85),
+        rgba(0,70,130,.75)
+    ),
+
+    url("../../img/mapas-interativos.png");
+
+
+    background-size:cover;
+    background-position:center;
+
+
+    display:flex;
+    align-items:center;
+
+
+    padding:60px 10%;
+
+}
+
+
+
+.banner-conteudo{
+
+    max-width:900px;
+    color:white;
+
+}
+
+
+
+.banner-conteudo span{
+
+
+    background:#00a6ff;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+
+}
+
+
+
+.banner-conteudo h1{
+
+
+    font-size:48px;
+
+    line-height:1.2;
+
+    margin:25px 0 20px;
+
+    font-weight:800;
+
+
+}
+
+
+
+.banner-conteudo p{
+
+    font-size:20px;
+
+    max-width:750px;
+
+    line-height:1.6;
+
+    opacity:.95;
+
+}
+
+
+
+.info-noticia{
+
+
+    margin-top:25px;
+
+    font-size:15px;
+
+    opacity:.9;
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+        CONTEÚDO DA MATÉRIA
+========================================== */
+
+
+.pagina-noticia{
+
+
+    width:85%;
+
+    margin:60px auto;
+
+
+    display:grid;
+
+    grid-template-columns:
+
+    2.2fr 1fr;
+
+
+    gap:40px;
+
+
+}
+
+
+
+
+.materia{
+
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:18px;
+
+    box-shadow:
+
+    0 10px 30px rgba(0,0,0,.08);
+
+
+}
+
+
+
+.imagem-principal{
+
+
+    width:100%;
+
+    height:420px;
+
+    object-fit:cover;
+
+
+    border-radius:15px;
+
+    margin-bottom:35px;
+
+
+}
+
+
+
+.materia h2{
+
+
+    font-size:30px;
+
+    color:#003b70;
+
+    margin:30px 0 15px;
+
+
+}
+
+
+
+.materia p{
+
+
+    font-size:17px;
+
+    line-height:1.8;
+
+    color:#555;
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+
+
+
+/* ==========================================
+        BOX DE DESTAQUE
+========================================== */
+
+
+.box-destaque{
+
+
+    margin:35px 0;
+
+    background:#eef7ff;
+
+    border-left:
+
+    6px solid #0077ff;
+
+
+    padding:25px;
+
+    border-radius:12px;
+
+
+}
+
+
+
+.box-destaque h3{
+
+
+    color:#003b70;
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+.box-destaque ul{
+
+
+    padding-left:25px;
+
+}
+
+
+
+.box-destaque li{
+
+
+    margin:10px 0;
+
+    font-size:16px;
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+        SIDEBAR
+========================================== */
+
+
+.sidebar{
+
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+
+}
+
+
+
+.card-lateral{
+
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:15px;
+
+
+    box-shadow:
+
+    0 8px 25px rgba(0,0,0,.08);
+
+
+}
+
+
+
+.card-lateral h3{
+
+
+    color:#003b70;
+
+    font-size:22px;
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+.card-lateral a{
+
+
+    display:block;
+
+    padding:15px 0;
+
+
+    border-bottom:
+
+    1px solid #eee;
+
+
+    color:#555;
+
+    transition:.3s;
+
+
+}
+
+
+
+.card-lateral a:hover{
+
+
+    color:#0077ff;
+
+    padding-left:8px;
+
+
+}
+
+
+
+.card-lateral p{
+
+
+    color:#666;
+
+    line-height:1.6;
+
+    margin-bottom:20px;
+
+}
+
+
+
+
+
+.botao-portal{
+
+
+    background:#0077ff;
+
+    color:white!important;
+
+
+    padding:14px 25px!important;
+
+
+    border-radius:30px;
+
+
+    text-align:center;
+
+
+    font-weight:600;
+
+
+    border:none!important;
+
+
+}
+
+
+.botao-portal:hover{
+
+
+    background:#005fc4;
+
+}
+
+
+
+
+
+
+/* ==========================================
+        NOTÍCIAS RELACIONADAS
+========================================== */
+
+
+.relacionadas{
+
+
+    width:85%;
+
+    margin:50px auto;
+
+
+}
+
+
+
+.relacionadas h2{
+
+
+    color:#003b70;
+
+    font-size:32px;
+
+    margin-bottom:30px;
+
+
+}
+
+
+
+.cards-noticias{
+
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(3,1fr);
+
+
+    gap:30px;
+
+
+}
+
+
+
+.noticia-card{
+
+
+    background:white;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+
+    box-shadow:
+
+    0 8px 25px rgba(0,0,0,.08);
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.noticia-card:hover{
+
+
+    transform:translateY(-8px);
+
+
+}
+
+
+
+.noticia-card img{
+
+
+    width:100%;
+
+    height:200px;
+
+    object-fit:cover;
+
+
+}
+
+
+
+.noticia-card h3{
+
+
+    padding:20px 20px 10px;
+
+    color:#003b70;
+
+
+}
+
+
+
+.noticia-card p{
+
+
+    padding:0 20px 25px;
+
+    color:#666;
+
+}
+
+
+
+
+
+/* ==========================================
+        FOOTER
+========================================== */
+
+
+footer{
+
+
+    margin-top:60px;
+
+    background:#003b70;
+
+    color:white;
+
+
+    text-align:center;
+
+    padding:30px;
+
+
+    font-size:15px;
+
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+        RESPONSIVO
+========================================== */
+
+
+@media(max-width:1000px){
+
+
+    nav{
+
+        display:none;
+
+    }
+
+
+
+    .banner-conteudo h1{
+
+        font-size:35px;
+
+    }
+
+
+
+    .pagina-noticia{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+
+    .cards-noticias{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+
+}
+
+
+
+@media(max-width:600px){
+
+
+    .noticia-banner{
+
+        padding:40px 25px;
+
+    }
+
+
+    .banner-conteudo h1{
+
+        font-size:28px;
+
+    }
+
+
+    .banner-conteudo p{
+
+        font-size:16px;
+
+    }
+
+
+    .materia{
+
+        padding:25px;
+
+    }
+
+
+    .imagem-principal{
+
+        height:250px;
+
+    }
+
+
+}

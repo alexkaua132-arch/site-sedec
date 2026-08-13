@@ -1,0 +1,1208 @@
+/* ==========================================
+        SATÉLITES - SEDEC
+        INTELIGÊNCIA ESPACIAL
+========================================== */
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+
+
+body{
+
+    background:#f4f8fc;
+    color:#1e3a5f;
+
+}
+
+
+
+
+/* ==========================================
+                HEADER PADRÃO
+========================================== */
+
+header{
+
+    width:100%;
+    height:90px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 60px;
+
+    position:fixed;
+    top:0;
+    left:0;
+
+    z-index:1000;
+
+    background:rgba(0,0,0,.35);
+
+    backdrop-filter:blur(8px);
+
+}
+
+/* LOGO */
+
+.logo{
+
+    width:150px;
+    height:auto;
+
+}
+
+/* MENU */
+
+nav{
+
+    display:flex;
+    gap:45px;
+
+}
+
+nav a{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+nav a:hover{
+
+    color:#00a8ff;
+
+}
+
+
+
+/* ==========================================
+HERO SATÉLITES
+========================================== */
+
+.hero-satelites{
+
+    min-height:100vh;
+
+    margin-top:-90px;
+
+    padding-top:90px;
+
+
+    background:
+    linear-gradient(
+        120deg,
+        rgba(3,38,78,.92),
+        rgba(0,170,230,.70)
+    ),
+    url("../../img/satelite1.png");
+
+
+    background-size:cover;
+
+    background-position:center;
+
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+
+    text-align:center;
+
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+
+.hero-satelites::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:0;
+
+    left:0;
+
+    width:100%;
+
+    height:90px;
+
+
+    background:#f4f8fc;
+
+
+    clip-path:polygon(
+        0 70%,
+        100% 0,
+        100% 100%,
+        0 100%
+    );
+
+}
+
+
+
+
+.hero-satelites .orbita{
+
+    position:absolute;
+
+    width:420px;
+
+    height:420px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(255,255,255,.25);
+
+    animation:girar 15s linear infinite;
+
+}
+
+
+
+@keyframes girar{
+
+    from{
+        transform:rotate(0);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+
+
+/* Globo no Hero */
+
+.hero-satelites .globo-orbital{
+
+    position:absolute;
+
+    right:12%;
+
+    top:25%;
+
+
+    width:250px;
+
+    height:250px;
+
+
+    border-radius:50%;
+
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+
+    background:rgba(255,255,255,.08);
+
+
+    box-shadow:
+    0 0 50px rgba(0,200,255,.5);
+
+
+    z-index:2;
+
+}
+
+
+
+.hero-satelites .globo-orbital .mapa{
+
+    width:230px;
+
+    height:230px;
+
+
+    object-fit:contain;
+
+
+    filter:
+    drop-shadow(0 0 15px #00cfff);
+
+}
+
+
+
+
+.hero-satelites .conteudo{
+
+    max-width:750px;
+
+    padding:20px;
+
+    z-index:3;
+
+}
+
+
+
+
+.hero-satelites .conteudo span{
+
+    font-size:13px;
+
+    letter-spacing:3px;
+
+    color:#b9ecff;
+
+}
+
+
+
+.hero-satelites .conteudo h1{
+
+    font-size:52px;
+
+    color:white;
+
+    margin:15px 0;
+
+}
+
+
+
+
+.hero-satelites .conteudo p{
+
+    font-size:18px;
+
+    line-height:1.7;
+
+    color:#edf8ff;
+
+}
+
+
+
+
+.hero-satelites .botao{
+
+    display:inline-block;
+
+    margin-top:30px;
+
+    padding:13px 35px;
+
+    border-radius:30px;
+
+
+    background:#00bfff;
+
+    color:white;
+
+
+    text-decoration:none;
+
+    font-size:15px;
+
+
+    transition:.3s;
+
+}
+
+
+
+
+.hero-satelites .botao:hover{
+
+    background:white;
+
+    color:#0066a6;
+
+}
+
+
+/* ==========================================
+                INTRO
+========================================== */
+
+
+.intro{
+
+
+padding:80px 8%;
+
+
+background:white;
+
+
+}
+
+
+
+.intro-grid{
+
+
+display:grid;
+
+
+grid-template-columns:1fr 380px;
+
+
+align-items:center;
+
+
+gap:60px;
+
+
+}
+
+
+
+.intro h2{
+
+
+font-size:34px;
+
+
+color:#075985;
+
+
+margin-bottom:20px;
+
+
+}
+
+
+
+.intro p{
+
+
+font-size:16px;
+
+
+line-height:1.8;
+
+
+color:#64748b;
+
+
+}
+
+
+
+
+
+/* CARD DO GLOBO */
+
+
+.imagem{
+
+
+display:flex;
+
+
+justify-content:center;
+
+
+}
+
+
+
+.mapa-card{
+
+
+background:white;
+
+
+padding:25px;
+
+
+width:320px;
+
+
+border-radius:25px;
+
+
+text-align:center;
+
+
+border:1px solid #dbeafe;
+
+
+box-shadow:
+
+0 15px 35px rgba(0,100,180,.15);
+
+
+}
+
+
+
+.icone{
+
+
+width:210px;
+
+
+height:210px;
+
+
+margin:auto;
+
+
+border-radius:50%;
+
+
+background:#eef7fd;
+
+
+display:flex;
+
+
+align-items:center;
+
+
+justify-content:center;
+
+
+overflow:hidden;
+
+
+}
+
+
+
+.mapa{
+
+
+width:100%;
+
+
+height:100%;
+
+
+object-fit:contain;
+
+
+}
+
+
+
+.info-mapa{
+
+
+margin-top:20px;
+
+
+}
+
+
+
+.info-mapa h3{
+
+
+color:#075985;
+
+
+font-size:19px;
+
+
+margin-bottom:10px;
+
+
+}
+
+
+
+.info-mapa p{
+
+
+font-size:14px;
+
+
+color:#64748b;
+
+
+}
+
+
+
+
+
+
+
+
+/* ==========================================
+          TECNOLOGIA ORBITAL
+========================================== */
+
+
+.tecnologia{
+
+
+padding:80px 8%;
+
+
+background:#eef6fc;
+
+
+}
+
+
+
+.titulo{
+
+
+text-align:center;
+
+
+margin-bottom:40px;
+
+
+}
+
+
+
+.titulo span{
+
+
+font-size:13px;
+
+
+letter-spacing:3px;
+
+
+color:#0284c7;
+
+
+}
+
+
+
+.titulo h2{
+
+
+font-size:32px;
+
+
+color:#16324f;
+
+
+margin-top:10px;
+
+
+}
+
+
+
+
+
+.cards{
+
+
+display:grid;
+
+
+grid-template-columns:repeat(3,1fr);
+
+
+gap:25px;
+
+
+}
+
+
+
+.card{
+
+
+background:white;
+
+
+padding:28px;
+
+
+border-radius:20px;
+
+
+border:1px solid #dbeafe;
+
+
+box-shadow:
+
+0 8px 25px rgba(0,0,0,.06);
+
+
+transition:.3s;
+
+
+}
+
+
+
+.card:hover{
+
+
+transform:translateY(-7px);
+
+
+}
+
+
+
+.card h3{
+
+
+font-size:18px;
+
+
+color:#0369a1;
+
+
+margin-bottom:12px;
+
+
+}
+
+
+
+.card p{
+
+
+font-size:14px;
+
+
+color:#64748b;
+
+
+line-height:1.7;
+
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+              INDICADORES
+========================================== */
+
+
+.indicadores{
+
+
+padding:70px 8%;
+
+
+background:white;
+
+
+}
+
+
+
+.numeros{
+
+
+display:grid;
+
+
+grid-template-columns:repeat(4,1fr);
+
+
+gap:20px;
+
+
+}
+
+
+
+.numero{
+
+
+background:#f1f7fc;
+
+
+padding:25px;
+
+
+border-radius:18px;
+
+
+text-align:center;
+
+
+}
+
+
+
+.numero h2{
+
+
+font-size:32px;
+
+
+color:#0284c7;
+
+
+}
+
+
+
+.numero p{
+
+
+font-size:14px;
+
+
+color:#64748b;
+
+
+}
+
+
+
+
+
+
+
+
+/* ==========================================
+              APLICAÇÕES
+========================================== */
+
+
+.aplicacoes{
+
+
+padding:80px 8%;
+
+
+background:#eef6fc;
+
+
+}
+
+
+
+.aplicacoes h2{
+
+
+text-align:center;
+
+
+font-size:32px;
+
+
+color:#16324f;
+
+
+margin-bottom:40px;
+
+
+}
+
+
+
+
+
+.lista{
+
+
+display:grid;
+
+
+grid-template-columns:repeat(3,1fr);
+
+
+gap:25px;
+
+
+}
+
+
+
+.item{
+
+
+background:white;
+
+
+padding:30px;
+
+
+border-radius:18px;
+
+
+border-left:4px solid #00bfff;
+
+
+}
+
+
+
+.item h3{
+
+
+font-size:19px;
+
+
+color:#075985;
+
+
+margin-bottom:10px;
+
+
+}
+
+
+
+.item p{
+
+
+font-size:14px;
+
+
+color:#64748b;
+
+
+line-height:1.7;
+
+
+}
+
+
+/* =========================
+   IMAGENS GEOESPACIAIS
+========================= */
+
+
+.imagens-geoespaciais{
+
+    padding:90px 8%;
+
+    background:#f5f9fc;
+
+    text-align:center;
+
+}
+
+
+
+.imagem-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:35px;
+
+    margin-top:50px;
+
+}
+
+
+
+.imagem-card{
+
+    background:white;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+
+    transition:.3s;
+
+}
+
+
+
+.imagem-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+
+
+.imagem-card img{
+
+    width:100%;
+
+    height:300px;
+
+    object-fit:cover;
+
+}
+
+
+
+.imagem-info{
+
+    padding:30px;
+
+}
+
+
+
+.imagem-info h3{
+
+    color:#064b55;
+
+    font-size:25px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.imagem-info p{
+
+    color:#555;
+
+    line-height:1.7;
+
+}
+
+
+
+.imagem-info a{
+
+    display:inline-block;
+
+    margin-top:20px;
+
+    padding:12px 30px;
+
+    background:#087f8c;
+
+    color:white;
+
+    border-radius:30px;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+
+
+.imagem-info a:hover{
+
+    background:#064b55;
+
+}
+
+
+
+@media(max-width:800px){
+
+    .imagem-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+
+
+
+/* ==========================================
+                FOOTER
+========================================== */
+
+
+footer{
+
+
+background:#06345c;
+
+
+color:white;
+
+
+text-align:center;
+
+
+padding:25px;
+
+
+font-size:14px;
+
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+              RESPONSIVO
+========================================== */
+
+
+@media(max-width:1000px){
+
+
+
+.globo-orbital{
+
+
+right:5%;
+
+
+width:180px;
+
+
+height:180px;
+
+
+}
+
+
+
+.globo-orbital .mapa{
+
+
+width:160px;
+
+
+height:160px;
+
+
+}
+
+
+
+.intro-grid{
+
+
+grid-template-columns:1fr;
+
+
+}
+
+
+
+.cards,
+.lista{
+
+
+grid-template-columns:1fr;
+
+
+}
+
+
+
+.numeros{
+
+
+grid-template-columns:repeat(2,1fr);
+
+
+}
+
+
+
+}
+
+
+
+
+@media(max-width:600px){
+
+
+
+header{
+
+
+padding:15px;
+
+
+}
+
+
+
+nav{
+
+
+display:none;
+
+
+}
+
+
+
+.conteudo h1{
+
+
+font-size:38px;
+
+
+}
+
+
+
+.conteudo p{
+
+
+font-size:16px;
+
+
+}
+
+
+
+.globo-orbital{
+
+
+display:none;
+
+
+}
+
+
+
+.numeros{
+
+
+grid-template-columns:1fr;
+
+
+}
+
+
+
+}

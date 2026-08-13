@@ -1,2293 +1,326 @@
-/* =====================================
-   CONFIGURAÇÃO GERAL
-===================================== */
+<!DOCTYPE html>
+<html lang="pt-br">
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-}
+<head>
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-body {
-    background: #f5f5f5;
-}
+<title>Sobre - SEDEC</title>
 
+<link rel="stylesheet" href="../../css/style.css">
+<link rel="stylesheet" href="../../css/Aba Sobre/sobre.css">
 
-/* =====================================
-   CABEÇALHO
-===================================== */
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-header {
+</head>
 
-    width: 100%;
-    height: 90px;
+<body>
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+<header>
 
-    padding: 0 60px;
+<img src="../../img/sedec.png" alt="Logo SEDEC" class="logo">
+<img src="../../img/geo.png" alt="Logo SEDEC" class="logo">
 
-    position: absolute;
-    top: 0;
+<nav>
 
-    z-index: 10;
+<a href="../../index.html">Início</a>
+<a href="../../index.html#sobre">Sobre</a>
+<a href="../../index.html#projetos">Projetos</a>
+<a href="../../index.html#equipe">Equipe</a>
+<a href="../../index.html#portal">Ferramentas</a>
 
-    background: rgba(0, 0, 0, 0.35);
+<!-- 
+<a href="#noticias">Notícias</a>
+-->
 
-    backdrop-filter: blur(8px);
+<a href="../../index.html#galeria">Galeria</a>
+<a href="../../index.html#contato">Contato</a>
 
-}
+</nav>
 
+</header>
 
-/* LOGO */
 
-.logo {
+<section class="sobre">
 
-    width: 250px;
-    height: auto;
+<div class="titulo-sobre">
 
-}
+<span>QUEM SOMOS</span>
 
-.hero{
+<h1>Conheça a SEDEC</h1>
 
-    height:100vh;
+<p>
 
-    position:relative;
+Há mais de uma década impulsionando o desenvolvimento econômico de Rondônia por meio da inovação, tecnologia e inteligência territorial.
 
-    overflow:hidden;
+</p>
 
-}
+</div>
 
 
-.pacaas{
+<div class="sobre-grid">
 
-    width:100%;
 
-    height:100%;
+<div class="texto">
 
-    object-fit:cover;
+<h2>Nossa História</h2>
 
-    position:absolute;
+<p>
 
-    top:0;
+A Secretaria de Estado do Desenvolvimento Econômico (SEDEC) promove políticas públicas voltadas ao crescimento econômico sustentável, atração de investimentos, inovação, comércio exterior e geointeligência.
 
-    left:0;
+</p>
 
-}
+<p>
 
-/* MENU */
+Com uma equipe multidisciplinar, utiliza Business Intelligence, ArcGIS, análises territoriais e indicadores estratégicos para apoiar gestores públicos na tomada de decisões.
 
-nav {
+</p>
 
-    display: flex;
-    gap: 30px;
 
-}
+<div class="cards-pequenos">
 
+<div class="mini-card azul">
 
-nav a {
+<h3>Missão</h3>
 
-    color: white;
+<p>
 
-    text-decoration: none;
+Promover o desenvolvimento econômico sustentável através da inovação e tecnologia.
 
-    font-size: 17px;
+</p>
 
-    font-weight: 600;
+</div>
 
-    transition: 0.3s;
 
-}
+<div class="mini-card amarelo">
 
+<h3>Visão</h3>
 
-nav a:hover {
+<p>
 
-    color: #00a8ff;
+Ser referência nacional em inteligência territorial.
 
-}
+</p>
 
+</div>
 
+</div>
 
-/* =====================================
-   BANNER PRINCIPAL
-===================================== */
+</div>
 
+<div class="imagem">
 
-.hero {
+<img src="../../img/mapa3.png" alt="Mapa SEDEC" class="mapa">
 
-    height: 100vh;
+<div class="contador">
 
-    background-image: 
-    linear-gradient(
-        rgba(0,0,0,0.55),
-        rgba(0,0,0,0.55)
-    ),
-    url("../img/sedec.jpg");
+<h2>52</h2>
 
+<p>Municípios atendidos</p>
 
-    background-size: cover;
+</div>
 
-    background-position: center;
+</div>
 
-    display: flex;
+</div>
 
-    align-items: center;
+<div class="valores">
 
-    justify-content: center;
 
-    text-align: center;
+<div class="valor">
 
-}
+<h3>Transparência</h3>
 
+<p>Dados públicos e gestão responsável.</p>
 
+</div>
 
-/* CAMADA SOBRE A IMAGEM */
+<div class="valor">
 
-.overlay {
+<h3>Inovação</h3>
 
-    color: white;
+<p>Tecnologia para melhorar os serviços.</p>
 
-    max-width: 900px;
+</div>
 
-    padding: 30px;
+<div class="valor">
 
-}
+<h3>Colaboração</h3>
 
+<p>Parcerias para desenvolver Rondônia.</p>
 
+</div>
 
-/* TÍTULO */
+<div class="valor">
 
-.overlay h1 {
+<h3>Sustentabilidade</h3>
 
-    font-size: 48px;
+<p>Crescimento econômico com responsabilidade.</p>
 
-    margin-bottom: 20px;
+</div>
 
-    font-weight: 700;
+</div>
 
-}
+</section>
 
+<footer>
 
+SEDEC • Secretaria de Desenvolvimento Econômico
 
-/* TEXTO */
+</footer>
 
-.overlay p {
+</body>
 
-    font-size: 21px;
+</html>
 
-    line-height: 1.5;
 
-    margin-bottom: 35px;
 
-}
 
 
 
-/* =====================================
-   BOTÕES
-===================================== */
+<!DOCTYPE html>
+<html lang="pt-br">
 
+<head>
 
-.btn-container {
+<meta charset="UTF-8">
 
-    display: flex;
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    justify-content: center;
 
-    gap: 20px;
+<title>Quem Somos - SEDEC</title>
 
-}
 
+<link rel="stylesheet" href="../css/style.css">
 
+<link rel="stylesheet" href="../css/quem-somos.css">
 
-.btn {
 
-    background: #0066cc;
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    color: white;
 
-    padding: 15px 35px;
+</head>
 
-    border-radius: 30px;
 
-    text-decoration: none;
+<body>
 
-    font-weight: bold;
 
-    transition: 0.3s;
 
-    border: 2px solid transparent;
+<header>
 
-}
+<img src="../img/sedec2.png" class="logo">
 
 
+<nav>
 
-.btn:hover {
+<a href="../index.html">
+Início
+</a>
 
-    background: transparent;
+<a href="sobre.html">
+Sobre
+</a>
 
-    border: 2px solid white;
+<a href="../index.html#projetos">
+Projetos
+</a>
 
-    transform: translateY(-5px);
+<a href="../index.html#portal">
+Ferramentas
+</a>
 
-}
+<a href="../index.html#contato">
+Contato
+</a>
 
 
+</nav>
 
-/* =====================================
-   RESPONSIVIDADE
-===================================== */
 
+</header>
 
-@media(max-width: 768px){
 
 
-header {
 
-    padding: 0 20px;
 
-}
 
 
-nav {
+<!-- HERO -->
 
-    gap: 15px;
 
-}
+<section class="hero">
 
 
-nav a {
+<div class="hero-conteudo">
 
-    font-size: 14px;
 
-}
+<span>
+SEDEC
+</span>
 
 
-.overlay h1 {
 
-    font-size: 32px;
+<h1>
 
-}
+Tecnologia, Dados e Estratégia para Desenvolver Rondônia
 
+</h1>
 
-.overlay p {
 
-    font-size: 17px;
 
-}
+<p>
 
+A Secretaria de Desenvolvimento Econômico promove ações estratégicas
+utilizando tecnologia, geointeligência, análise de dados e inovação
+para apoiar decisões do Governo do Estado.
 
-.btn-container {
+</p>
 
-    flex-direction: column;
 
-}
+</div>
 
 
-}
+</section>
 
 
-/* =====================================
-   SEÇÃO QUEM SOMOS
-===================================== */
 
-#sobre {
 
-    width: 100%;
 
-    padding: 80px 10%;
 
-    background: #ffffff;
 
-    display: flex;
 
-    flex-direction: column;
 
-    align-items: center;
+<!-- VIDEO -->
 
-}
 
+<section class="video">
 
 
-/* TÍTULO DA SEÇÃO */
+<h2 class="titulo">
 
-.titulo {
+Conheça a SEDEC
 
-    font-size: 38px;
+</h2>
 
-    font-weight: 700;
 
-    color: #003366;
 
-    text-align: center;
+<div class="video-box">
 
-    margin-bottom: 30px;
 
-    position: relative;
+<video controls>
 
-}
 
+<source src="../video/sedec.mp4" type="video/mp4">
 
 
-/* LINHA DECORATIVA ABAIXO DO TÍTULO */
+</video>
 
-.titulo::after {
 
-    content: "";
+</div>
 
-    width: 80px;
 
-    height: 4px;
 
-    background: #0066cc;
+</section>
 
-    display: block;
-
-    margin: 15px auto;
-
-    border-radius: 10px;
-
-}
-
-
-
-/* TEXTO DA SEÇÃO */
-
-.descricao-sobre {
-
-    text-align: center;
-
-    font-size: 18px;
-
-    max-width: 900px;
-
-    line-height: 35px;
-
-    color: #444;
-
-}
-
-
-
-/* EFEITO DE ENTRADA */
-
-#sobre {
-
-    animation: aparecer 1s ease;
-
-}
-
-
-@keyframes aparecer {
-
-    from {
-
-        opacity: 0;
-
-        transform: translateY(40px);
-
-    }
-
-
-    to {
-
-        opacity: 1;
-
-        transform: translateY(0);
-
-    }
-
-}
-
-
-
-/* =====================================
-   RESPONSIVIDADE
-===================================== */
-
-
-@media(max-width:768px){
-
-    #sobre {
-
-        padding: 50px 20px;
-
-    }
-
-
-    .titulo {
-
-        font-size: 30px;
-
-    }
-
-
-    .descricao-sobre {
-
-        font-size: 16px;
-
-        line-height: 28px;
-
-    }
-
-}
-
-/* =====================================
-   NOSSAS ESPECIALIDADES
-===================================== */
-
-.especialidades{
-
-    padding:100px 8%;
-
-    background:#f8fafc;
-
-}
-
-.titulo-especialidades{
-
-    text-align:center;
-
-    margin-bottom:70px;
-
-}
-
-.titulo-especialidades span{
-
-    color:#1976d2;
-
-    font-size:13px;
-
-    font-weight:700;
-
-    letter-spacing:2px;
-
-}
-
-.titulo-especialidades h2{
-
-    font-size:42px;
-
-    color:#0d47a1;
-
-    margin:15px 0;
-
-}
-
-.titulo-especialidades p{
-
-    max-width:800px;
-
-    margin:auto;
-
-    color:#666;
-
-    line-height:30px;
-
-}
-
-.especialidades-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
-
-    gap:35px;
-
-}
-
-.especialidade-card{
-
-    background:white;
-
-    padding:35px;
-
-    border-radius:20px;
-
-    box-shadow:0 8px 25px rgba(0,0,0,.08);
-
-    transition:.35s;
-
-    border-top:5px solid #1976d2;
-
-}
-
-.especialidade-card:hover{
-
-    transform:translateY(-10px);
-
-    box-shadow:0 15px 35px rgba(0,0,0,.15);
-
-}
-
-.icone{
-
-    width:70px;
-
-    height:70px;
-
-    background:#e3f2fd;
-
-    border-radius:50%;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:30px;
-
-    margin-bottom:25px;
-
-}
-
-.especialidade-card h3{
-
-    color:#0d47a1;
-
-    margin-bottom:18px;
-
-    font-size:24px;
-
-}
-
-.especialidade-card p{
-
-    color:#666;
-
-    line-height:30px;
-
-    margin-bottom:25px;
-
-}
-
-.especialidade-card a{
-
-    text-decoration:none;
-
-    color:#1976d2;
-
-    font-weight:600;
-
-    transition:.3s;
-
-}
-
-.especialidade-card a:hover{
-
-    color:#0d47a1;
-
-    padding-left:8px;
-
-}
-
-@media(max-width:900px){
-
-.especialidades{
-
-padding:80px 5%;
-
-}
-
-.titulo-especialidades h2{
-
-font-size:34px;
-
-}
-
-.especialidades-grid{
-
-grid-template-columns:1fr;
-
-}
-
-}
-
-/* =====================================
-   NOSSOS SISTEMAS
-===================================== */
-
-#portal{
-
-    padding:100px 8%;
-
-    background:#ffffff;
-
-}
-
-/* CABEÇALHO DA SEÇÃO */
-
-.titulo-portal{
-
-    text-align:center;
-
-    margin-bottom:60px;
-
-}
-
-.titulo-portal span{
-
-    display:block;
-
-    color:#1976d2;
-
-    font-size:13px;
-
-    font-weight:700;
-
-    letter-spacing:2px;
-
-    text-transform:uppercase;
-
-    margin-bottom:12px;
-
-}
-
-#portal .titulo{
-
-    color:#0d47a1;
-
-    font-size:42px;
-
-    font-weight:700;
-
-    margin:0;
-
-}
-
-/* GRID DOS CARDS */
-
-.cards-portal{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(300px,320px));
-
-    justify-content:center;
-
-    gap:30px;
-
-}
-
-/* CARD */
-
-.card-portal{
-
-    background:linear-gradient(135deg,#003366,#0066cc);
-
-    color:white;
-
-    padding:35px 30px;
-
-    border-radius:18px;
-
-    min-height:220px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
-    transition:.35s;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.12);
-
-}
-
-/* EFEITO HOVER */
-
-.card-portal:hover{
-
-    transform:translateY(-10px);
-
-    box-shadow:0 18px 35px rgba(0,0,0,.18);
-
-}
-
-/* TÍTULO DOS CARDS */
-
-.card-portal h3{
-
-    font-size:24px;
-
-    margin-bottom:18px;
-
-    color:#ffffff;
-
-}
-
-/* TEXTO DOS CARDS */
-
-.card-portal p{
-
-    font-size:16px;
-
-    line-height:28px;
-
-    color:#f2f2f2;
-
-}
-
-/* EFEITO NO TÍTULO */
-
-.card-portal:hover h3{
-
-    color:#7fd3ff;
-
-}
-
-/* RESPONSIVIDADE */
-
-@media(max-width:900px){
-
-    #portal{
-
-        padding:80px 5%;
-
-    }
-
-    .cards-portal{
-
-        grid-template-columns:repeat(2,minmax(250px,1fr));
-
-    }
-
-}
-
-@media(max-width:650px){
-
-    .cards-portal{
-
-        grid-template-columns:1fr;
-
-    }
-
-    #portal .titulo{
-
-        font-size:32px;
-
-    }
-
-    .card-portal{
-
-        min-height:auto;
-
-    }
-
-}
-
-/* TÍTULO INDICADORES */
-
-.titulo-indicadores{
-
-    text-align:center;
-    margin-bottom:60px;
-
-}
-
-
-.titulo-indicadores span{
-
-    color:#bbdefb;
-
-    font-size:13px;
-
-    font-weight:700;
-
-    letter-spacing:2px;
-
-    display:block;
-
-    margin-bottom:10px;
-
-}
-
-
-.titulo-indicadores p{
-
-    color:white;
-
-    opacity:.9;
-
-    font-size:17px;
-
-    max-width:600px;
-
-    margin:15px auto 0;
-
-}
-
-/* =====================================
-   INDICADORES
-===================================== */
-
-#indicadores{
-
-    padding:100px 8%;
-
-    background:linear-gradient(135deg,#0d47a1,#1976d2);
-
-}
-
-
-/* TÍTULO DA SEÇÃO */
-
-.titulo-indicadores{
-
-    text-align:center;
-
-    margin-bottom:60px;
-
-}
-
-
-.titulo-indicadores span{
-
-    color:white;
-
-    font-size:13px;
-
-    font-weight:700;
-
-    letter-spacing:2px;
-
-    display:block;
-
-    margin-bottom:10px;
-
-}
-
-
-#indicadores .titulo{
-
-    color:white;
-
-    margin-bottom:0;
-
-    font-size:36px;
-
-}
-
-
-/* CARDS DE INDICADORES */
-
-.indicadores{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-
-    gap:30px;
-
-}
-
-
-/* CARD */
-
-.indicador{
-
-    background:rgba(255,255,255,.12);
-
-    backdrop-filter:blur(8px);
-
-    border-radius:18px;
-
-    padding:35px;
-
-    text-align:center;
-
-    transition:.35s;
-
-    border:1px solid rgba(255,255,255,.15);
-
-}
-
-
-.indicador:hover{
-
-    transform:translateY(-10px);
-
-    background:rgba(255,255,255,.18);
-
-}
-
-
-/* NÚMEROS */
-
-.numero{
-
-    font-size:55px;
-
-    font-weight:700;
-
-    color:white;
-
-    margin-bottom:15px;
-
-}
-
-
-/* DESCRIÇÃO */
-
-.indicador p{
-
-    color:white;
-
-    font-size:18px;
-
-    font-weight:500;
-
-}
-
-
-/* RESPONSIVO */
-
-@media(max-width:900px){
-
-    #indicadores .titulo{
-
-        font-size:30px;
-
-    }
-
-}
-
-/* =====================================
-   PROJETOS EM DESTAQUE
-===================================== */
-
-#projetos{
-
-    padding:100px 8%;
-
-    background:#f8fafc;
-
-}
-
-
-/* TÍTULO DA SEÇÃO */
-
-.titulo-projetos{
-
-    text-align:center;
-
-    margin-bottom:60px;
-
-}
-
-
-.titulo-projetos span{
-
-    color:#1976d2;
-
-    font-size:13px;
-
-    font-weight:700;
-
-    letter-spacing:2px;
-
-    display:block;
-
-    margin-bottom:10px;
-
-}
-
-
-#projetos .titulo{
-
-    color:#1e293b;
-
-    font-size:36px;
-
-    margin-bottom:0;
-
-}
-
-
-/* GRID DOS PROJETOS */
-
-.cards-projetos{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit, minmax(280px, 320px));
-
-    justify-content:center;
-
-    gap:30px;
-
-}
-
-
-/* CARD */
-
-.card-projeto{
-
-    background:white;
-
-    padding:35px;
-
-    border-radius:18px;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-
-    transition:.35s;
-
-    border-top:5px solid #073f77;
-
-}
-
-
-/* EFEITO HOVER */
-
-.card-projeto:hover{
-
-    transform:translateY(-10px);
-
-    box-shadow:0 20px 40px rgba(0,0,0,.15);
-
-}
-
-
-/* TÍTULO DO CARD */
-
-.card-projeto h3{
-
-    color:#0d47a1;
-
-    font-size:24px;
-
-    margin-bottom:18px;
-
-}
-
-
-/* TEXTO DO CARD */
-
-.card-projeto p{
-
-    color:#666;
-
-    line-height:28px;
-
-    font-size:16px;
-
-}
-
-
-
-/* =====================================
-   RESPONSIVIDADE
-===================================== */
-
-@media(max-width:900px){
-
-    #projetos{
-
-        padding:80px 5%;
-
-    }
-
-
-    #projetos .titulo{
-
-        font-size:30px;
-
-    }
-
-}
-
-
-@media(max-width:600px){
-
-    .card-projeto h3{
-
-        font-size:20px;
-
-    }
-
-}
-
-
-/* =====================================
-   NOSSA EQUIPE
-===================================== */
-
-
-#equipe {
-
-    padding:80px 10%;
-
-    background:#f5f7fa;
-
-}
-
-
-
-/* TÍTULO DA SEÇÃO */
-
-.titulo-equipe{
-
-    text-align:center;
-
-    margin-bottom:60px;
-
-}
-
-
-.titulo-equipe span{
-
-    color:#1976d2;
-
-    font-size:13px;
-
-    font-weight:700;
-
-    letter-spacing:2px;
-
-    display:block;
-
-    margin-bottom:10px;
-
-}
-
-
-#equipe .titulo{
-
-    color:#1e293b;
-
-    font-size:36px;
-
-    margin-bottom:0;
-
-}
-
-
-
-/* GRID DA EQUIPE */
-
-.cards-equipe {
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:30px;
-
-}
-
-
-
-/* CARD */
-
-.card-equipe {
-
-    background:white;
-
-    border-radius:18px;
-
-    padding:30px 20px;
-
-    text-align:center;
-
-    box-shadow:0 5px 20px rgba(0,0,0,0.10);
-
-    transition:0.4s;
-
-}
-
-
-
-/* FOTO */
-
-.foto-equipe {
-
-    width:130px;
-
-    height:130px;
-
-    object-fit:cover;
-
-    border-radius:50%;
-
-    margin-bottom:20px;
-
-    border:4px solid #0066cc;
-
-}
-
-
-
-/* CARGO */
-
-.card-equipe h3 {
-
-    color:#003366;
-
-    font-size:22px;
-
-    margin-bottom:10px;
-
-}
-
-
-
-/* TEXTO */
-
-.card-equipe p {
-
-    color:#666;
-
-    font-size:16px;
-
-}
-
-
-
-/* EFEITO */
-
-.card-equipe:hover {
-
-    transform:translateY(-10px);
-
-    box-shadow:0 15px 30px rgba(0,0,0,0.18);
-
-}
-
-
-
-/* HOVER FOTO */
-
-.card-equipe:hover .foto-equipe {
-
-    border-color:#00a8ff;
-
-}
-
-
-
-/* RESPONSIVIDADE */
-
-@media(max-width:1000px){
-
-
-    .cards-equipe {
-
-        grid-template-columns:repeat(2,1fr);
-
-    }
-
-
-    #equipe .titulo{
-
-        font-size:30px;
-
-    }
-
-}
-
-
-
-@media(max-width:600px){
-
-
-    .cards-equipe {
-
-        grid-template-columns:1fr;
-
-    }
-
-
-}
-
-/* ================================
-   NOTÍCIAS
-================================ */
-
-
-/* TÍTULO DA SEÇÃO */
-
-.titulo-noticias{
-
-    text-align:center;
-
-    margin-bottom:60px;
-
-}
-
-
-.titulo-noticias span{
-
-    color:#1976d2;
-
-    font-size:13px;
-
-    font-weight:700;
-
-    letter-spacing:2px;
-
-    display:block;
-
-    margin-bottom:10px;
-
-}
-
-
-#noticias .titulo{
-
-    color:#1e293b;
-
-    font-size:36px;
-
-    margin-bottom:0;
-
-}
-
-
-
-/* CARDS DE NOTÍCIAS */
-
-
-.noticia{
-
-    overflow:hidden;
-
-    padding:0;
-
-}
-
-
-
-.noticia img{
-
-    width:100%;
-
-    height:220px;
-
-    object-fit:cover;
-
-}
-
-
-
-.noticia h3{
-
-    padding:20px 20px 10px;
-
-}
-
-
-
-.noticia p{
-
-    padding:0 20px;
-
-    line-height:1.6;
-
-}
-
-
-
-.ler-mais{
-
-    display:inline-block;
-
-    margin:20px;
-
-    color:#0d47a1;
-
-    font-weight:600;
-
-    text-decoration:none;
-
-}
-
-
-
-.ler-mais:hover{
-
-    color:#1565c0;
-
-}
-
-/* =====================================
-   GALERIA
-===================================== */
-
-
-/* TÍTULO DA SEÇÃO */
-
-.titulo-galeria{
-
-    text-align:center;
-
-    margin-bottom:20px;
-
-}
-
-
-.titulo-galeria span{
-
-    color:#1976d2;
-
-    font-size:13px;
-
-    font-weight:700;
-
-    letter-spacing:2px;
-
-    display:block;
-
-    margin-bottom:10px;
-
-}
-
-
-#galeria .titulo{
-
-    color:#1e293b;
-
-    font-size:36px;
-
-    margin-bottom:0;
-
-}
-
-
-/* SUBTÍTULO */
-
-.subtitulo-galeria{
-
-    text-align:center;
-
-    font-size:18px;
-
-    color:#555;
-
-    margin-bottom:40px;
-
-}
-
-
-/* GRID GALERIA */
-
-.galeria{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-
-    gap:25px;
-
-    margin-top:40px;
-
-}
-
-
-/* FOTO */
-
-.foto{
-
-    overflow:hidden;
-
-    border-radius:18px;
-
-    box-shadow:0 8px 25px rgba(0,0,0,.15);
-
-    transition:.4s;
-
-}
-
-
-.foto:hover{
-
-    transform:scale(1.03);
-
-}
-
-
-/* IMAGEM */
-
-.foto img{
-
-    width:100%;
-
-    height:250px;
-
-    object-fit:cover;
-
-    display:block;
-
-    transition:.4s;
-
-}
-
-
-.foto img:hover{
-
-    transform:scale(1.08);
-
-}
-
-
-/* RESPONSIVIDADE */
-
-@media(max-width:900px){
-
-    #galeria .titulo{
-
-        font-size:30px;
-
-    }
-
-}
-
-
-@media(max-width:600px){
-
-    .galeria{
-
-        grid-template-columns:1fr;
-
-    }
-
-}
-
-/* =====================================
-   CONTATO
-===================================== */
-
-
-#contato {
-
-    padding: 80px 10%;
-
-    background: #f5f7fa;
-
-}
-
-
-
-/* CONTAINER */
-
-.contato-container {
-
-    max-width: 1200px;
-
-    margin: auto;
-
-}
-
-
-
-/* CABEÇALHO */
-
-.contato-header {
-
-    text-align: center;
-
-    margin-bottom: 50px;
-
-}
-
-
-
-.badge {
-
-    background: #0066cc;
-
-    color: white;
-
-    padding: 8px 20px;
-
-    border-radius: 20px;
-
-    font-size: 14px;
-
-    font-weight: bold;
-
-}
-
-
-
-.contato-header h2 {
-
-    font-size: 38px;
-
-    color: #003366;
-
-    margin: 20px 0;
-
-}
-
-
-
-.contato-header p {
-
-    color: #555;
-
-    font-size: 18px;
-
-}
-
-
-
-
-
-/* GRID PRINCIPAL */
-
-.contato-grid {
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 40px;
-
-}
-
-
-
-/* CARDS INFORMAÇÕES */
-
-.info-cards {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 20px;
-
-}
-
-
-
-.card-contato {
-
-    background: white;
-
-    padding: 25px;
-
-    border-radius: 15px;
-
-    display: flex;
-
-    gap: 20px;
-
-    align-items: center;
-
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-
-}
-
-
-
-.icon {
-
-    font-size: 35px;
-
-}
-
-
-
-.label {
-
-    color: #0066cc;
-
-    font-size: 13px;
-
-    font-weight: bold;
-
-}
-
-
-
-.card-contato p {
-
-    color: #555;
-
-    margin-top: 8px;
-
-}
-
-
-
-
-
-/* FORMULÁRIO */
-
-.form-container {
-
-    background: white;
-
-    padding: 35px;
-
-    border-radius: 20px;
-
-    box-shadow: 0 5px 20px rgba(0,0,0,0.10);
-
-}
-
-
-
-.form-container h3 {
-
-    color: #003366;
-
-    font-size: 25px;
-
-    margin-bottom: 25px;
-
-}
-
-
-
-.form-row {
-
-    display: flex;
-
-    gap: 20px;
-
-}
-
-
-
-.form-group {
-
-    width: 100%;
-
-    margin-bottom: 20px;
-
-}
-
-
-
-.form-group label {
-
-    display: block;
-
-    margin-bottom: 8px;
-
-    font-weight: bold;
-
-    color: #333;
-
-}
-
-
-
-input,
-select,
-textarea {
-
-    width: 100%;
-
-    padding: 14px;
-
-    border-radius: 10px;
-
-    border: 1px solid #ccc;
-
-    font-size: 15px;
-
-}
-
-
-
-textarea {
-
-    height: 130px;
-
-    resize: none;
-
-}
-
-
-
-/* BOTÃO */
-
-.btn-submit {
-
-    width: 100%;
-
-    padding: 15px;
-
-    background: #0066cc;
-
-    color: white;
-
-    border: none;
-
-    border-radius: 30px;
-
-    font-size: 17px;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition: 0.3s;
-
-}
-
-
-
-.btn-submit:hover {
-
-    background: #003366;
-
-    transform: translateY(-3px);
-
-}
-
-
-
-/* RESPONSIVO */
-
-@media(max-width:900px){
-
-
-.contato-grid {
-
-    grid-template-columns: 1fr;
-
-}
-
-
-
-.form-row {
-
-    flex-direction: column;
-
-}
-
-
-}
-
-
-/* =====================================
-   RODAPÉ
-===================================== */
-
-
-footer {
-
-    background: #003366;
-
-    color: white;
-
-    text-align: center;
-
-    padding: 40px 20px;
-
-}
-
-
-
-/* TÍTULO */
-
-footer h2 {
-
-    font-size: 32px;
-
-    margin-bottom: 15px;
-
-    color: #00a8ff;
-
-}
-
-
-
-/* TEXTOS */
-
-footer p {
-
-    font-size: 16px;
-
-    margin: 10px 0;
-
-    color: #e8e8e8;
-
-}
-
-
-
-/* LINHA DECORATIVA */
-
-footer::before {
-
-    content: "";
-
-    display: block;
-
-    width: 80px;
-
-    height: 4px;
-
-    background: #00a8ff;
-
-    margin: 0 auto 25px;
-
-    border-radius: 10px;
-
-}
-
-/* ============================
-   SOBRE ABA
-============================ */
-
-.sobre{
-
-padding:140px 8% 80px;
-
-background:#f8fafc;
-
-}
-
-.titulo-sobre{
-
-text-align:center;
-
-margin-bottom:60px;
-
-}
-
-.titulo-sobre span{
-
-color:#1976d2;
-
-font-size:12px;
-
-font-weight:700;
-
-letter-spacing:2px;
-
-}
-
-.titulo-sobre h1{
-
-font-size:42px;
-
-margin:15px 0;
-
-color:#0d47a1;
-
-}
-
-.titulo-sobre p{
-
-max-width:800px;
-
-margin:auto;
-
-color:#666;
-
-line-height:30px;
-
-}
-
-.sobre-grid{
-
-display:grid;
-
-grid-template-columns:1fr 1fr;
-
-gap:60px;
-
-align-items:center;
-
-}
-
-.texto h2{
-
-margin-bottom:25px;
-
-color:#0d47a1;
-
-}
-
-.texto p{
-
-line-height:32px;
-
-margin-bottom:20px;
-
-color:#555;
-
-}
-
-.cards-pequenos{
-
-display:flex;
-
-gap:20px;
-
-margin-top:30px;
-
-}
-
-.mini-card{
-
-flex:1;
-
-padding:25px;
-
-border-radius:15px;
-
-}
-
-.azul{
-
-background:#e3f2fd;
-
-}
-
-.amarelo{
-
-background:#fff8e1;
-
-}
-
-.mini-card h3{
-
-margin-bottom:10px;
-
-color:#0d47a1;
-
-}
-
-.imagem{
-
-position:relative;
-
-}
-
-.imagem img{
-
-width:100%;
-
-height:650px;
-
-border-radius:20px;
-
-object-fit:cover;
-
-box-shadow:0 15px 35px rgba(0,0,0,.15);
-
-}
-
-.contador{
-
-position:absolute;
-
-left:25px;
-
-bottom:25px;
-
-background:white;
-
-padding:18px 30px;
-
-border-radius:15px;
-
-box-shadow:0 8px 25px rgba(0,0,0,.15);
-
-}
-
-.contador h2{
-
-color:#0d47a1;
-
-font-size:34px;
-
-}
-
-.valores{
-
-margin-top:70px;
-
-display:grid;
-
-grid-template-columns:repeat(4,1fr);
-
-gap:25px;
-
-}
-
-.valor{
-
-background:white;
-
-padding:30px;
-
-border-radius:15px;
-
-text-align:center;
-
-box-shadow:0 8px 20px rgba(0,0,0,.08);
-
-transition:.3s;
-
-}
-
-.valor:hover{
-
-transform:translateY(-8px);
-
-}
-
-.valor h3{
-
-color:#1565c0;
-
-margin-bottom:15px;
-
-}
-
-@media(max-width:900px){
-
-.sobre-grid{
-
-grid-template-columns:1fr;
-
-}
-
-.valores{
-
-grid-template-columns:1fr 1fr;
-
-}
-
-.cards-pequenos{
-
-flex-direction:column;
-
-}
-
-}
-
-@media(max-width:600px){
-
-.valores{
-
-grid-template-columns:1fr;
-
-}
-
-.titulo-sobre h1{
-
-font-size:32px;
-
-}
-
-}
-
-
-
-.hero{
-
-    height:100vh;
-
-    background-image:
-        linear-gradient(
-            rgba(0,0,0,.55),
-            rgba(0,0,0,.55)
-        ),
-        url("../img/sedec2.png");
-
-    background-size:cover;
-
-    background-position:center;
-
-    background-repeat:no-repeat;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-}
-
-/* =====================================
-   IMAGEM SOBRE
-===================================== */
-
-.imagem{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-}
-
-.mapa{
-
-    width:100%;
-
-    max-width:650px;
-
-    height:auto;
-
-    object-fit:contain;
-
-    display:block;
-
-}
-
-/* =====================================
-   CARD CONTADOR
-===================================== */
-
-.contador{
-
-    position: absolute;
-
-    left: 20px;
-
-    bottom: 20px;
-
-    background: #ffffff;
-
-    padding: 18px 30px;
-
-    border-radius: 15px;
-
-    box-shadow: 0 8px 25px rgba(0,0,0,.15);
-
-    text-align: center;
-
-}
-
-.contador h2{
-
-    color: #0d47a1;
-
-    font-size: 32px;
-
-    font-weight: 700;
-
-    margin-bottom: 5px;
-
-}
-
-.contador p{
-
-    color: #555;
-
-    font-size: 15px;
-
-    margin: 0;
-
-}

@@ -1,38 +1,76 @@
-/* =====================================
-   DESENVOLVIMENTO ECONÔMICO
-===================================== */
+/* ==================================================
+   DESENVOLVIMENTO ECONÔMICO - SEDEC
+================================================== */
 
-/* Título */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
 
-.titulo-sobre span{
+html{
+    scroll-behavior:smooth;
+}
 
-    color:#2e7d32;
+body{
+    background:#f5f8fb;
+    color:#2d3748;
+    overflow-x:hidden;
+}
+
+/* ==========================================
+                HEADER PADRÃO
+========================================== */
+
+header{
+
+    width:100%;
+    height:90px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 60px;
+
+    position:fixed;
+    top:0;
+    left:0;
+
+    z-index:1000;
+
+    background:rgba(0,0,0,.35);
+
+    backdrop-filter:blur(8px);
 
 }
 
-.titulo-sobre h1{
+/* LOGO */
 
-    color:#1b4332;
+.logo{
+
+    width:150px;
+    height:auto;
 
 }
 
-/* Botão */
+/* MENU */
 
-.botao{
+nav{
 
-    display:inline-block;
+    display:flex;
+    gap:45px;
 
-    margin-top:30px;
+}
 
-    padding:14px 30px;
+nav a{
 
-    background:#2e7d32;
-
-    color:#fff;
+    color:white;
 
     text-decoration:none;
 
-    border-radius:10px;
+    font-size:13px;
 
     font-weight:600;
 
@@ -40,120 +78,504 @@
 
 }
 
-.botao:hover{
+nav a:hover{
 
-    background:#1b5e20;
-
-    transform:translateY(-4px);
+    color:#00a8ff;
 
 }
 
-/* Cards */
+/* ==========================================
+   HERO
+========================================== */
 
-.mini-card{
+.hero-economico{
 
-    transition:.35s;
+    min-height:90vh;
 
-}
+    background:
+    linear-gradient(rgba(0,58,92,.82),rgba(0,134,197,.75)),
+    url("../../img/PVH1.png");
 
-.mini-card:hover{
+    background-size:cover;
+    background-position:center;
 
-    transform:translateY(-8px);
-
-    box-shadow:0 12px 28px rgba(0,0,0,.15);
-
-}
-
-.mini-card.azul{
-
-    border-left:5px solid #2e7d32;
-
-}
-
-.mini-card.amarelo{
-
-    border-left:5px solid #f9a825;
-
-}
-
-/* Contador */
-
-.contador{
-
-    border-left:6px solid #2e7d32;
-
-}
-
-.contador h2{
-
-    color:#2e7d32;
-
-}
-
-/* Cards de atuação */
-
-.valor{
-
-    transition:.35s;
-
-}
-
-.valor:hover{
-
-    background:#2e7d32;
-
-    transform:translateY(-8px);
-
-}
-
-.valor:hover h3,
-
-.valor:hover p{
-
-    color:#fff;
-
-}
-
-/* Seções */
-
-.tecnologias{
-
-    padding:90px 8%;
-
-    background:#fff;
-
-}
-
-.tecnologias h2{
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
     text-align:center;
 
-    color:#1b4332;
+    color:white;
 
-    font-size:34px;
+    padding:120px 8%;
+
+}
+
+.hero-conteudo{
+
+    max-width:900px;
+
+}
+
+.hero-conteudo span{
+
+    color:#c7f5ff;
+
+    letter-spacing:4px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+.hero-conteudo h1{
+
+    font-size:58px;
+
+    margin:25px 0;
+
+}
+
+.hero-conteudo p{
+
+    font-size:21px;
+
+    line-height:1.8;
+
+}
+
+.btn{
+
+    display:inline-block;
+
+    margin-top:35px;
+
+    padding:15px 38px;
+
+    border-radius:40px;
+
+    background:#00b4d8;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.btn:hover{
+
+    background:white;
+
+    color:#006d9f;
+
+    transform:translateY(-5px);
+
+}
+
+/* ==========================================
+   TÍTULOS
+========================================== */
+
+.indicadores h2,
+.areas h2,
+.projetos h2,
+.publicacoes h2,
+.investimento h2{
+
+    text-align:center;
+
+    font-size:38px;
+
+    color:#003b5c;
 
     margin-bottom:45px;
 
 }
 
-/* Responsividade */
+/* ==========================================
+   INDICADORES
+========================================== */
 
-@media(max-width:900px){
+.indicadores{
 
-    .sobre-grid{
-
-        grid-template-columns:1fr;
-
-    }
+    padding:90px 8%;
 
 }
 
-@media(max-width:600px){
+.indicadores-grid{
 
-    .titulo-sobre h1{
+    display:grid;
 
-        font-size:32px;
+    grid-template-columns:repeat(4,1fr);
 
-    }
+    gap:10px;
+
+}
+
+.indicador{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    text-align:center;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+}
+
+.indicador:hover{
+
+    transform:translateY(-10px);
+
+}
+
+.indicador h3{
+
+    color:#00a6d6;
+
+    font-size:45px;
+
+    margin-bottom:10px;
+
+}
+
+.indicador p{
+
+    color:#666;
+
+}
+
+/* ==========================================
+   ÁREAS
+========================================== */
+
+.areas{
+
+    padding:90px 8%;
+
+    background:#eef6fb;
+
+}
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+}
+
+.card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    border-top:6px solid #00b4d8;
+
+    transition:.35s;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+}
+
+.card:hover{
+
+    transform:translateY(-10px);
+
+    background:#00b4d8;
+
+    color:white;
+
+}
+
+.card h3{
+
+    margin-bottom:18px;
+
+}
+
+/* ==========================================
+   INVESTIMENTOS
+========================================== */
+
+.investimento{
+
+    padding:90px 8%;
+
+    background:linear-gradient(135deg,#003b5c,#0077b6);
+
+    color:white;
+
+    text-align:center;
+
+}
+
+.investimento h2{
+
+    color:white;
+
+}
+
+.vantagens{
+
+    display:grid;
+
+    grid-template-columns:repeat(5,1fr);
+
+    gap:20px;
+
+}
+
+.vantagens div{
+
+    background:rgba(255,255,255,.12);
+
+    border-radius:18px;
+
+    padding:30px 20px;
+
+    backdrop-filter:blur(8px);
+
+    transition:.3s;
+
+    font-weight:500;
+
+}
+
+.vantagens div:hover{
+
+    background:white;
+
+    color:#003b5c;
+
+    transform:translateY(-8px);
+
+}
+
+/* ==========================================
+   PROJETOS
+========================================== */
+
+.projetos{
+
+    padding:90px 8%;
+
+}
+
+.projeto{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    margin-bottom:25px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+    border-left:6px solid #00b4d8;
+
+    transition:.3s;
+
+}
+
+.projeto:hover{
+
+    transform:translateX(10px);
+
+}
+
+.projeto span{
+
+    color:#00b4d8;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+}
+
+.projeto h3{
+
+    margin:12px 0;
+
+    color:#003b5c;
+
+}
+
+.projeto p{
+
+    color:#555;
+
+}
+.indicador a{
+
+    display:inline-block;
+
+    margin-top:15px;
+
+    padding:10px 20px;
+
+    background:#003b5c;
+
+    color:white;
+
+    border-radius:25px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+.indicador a:hover{
+
+    background:#00a8df;
+
+    transform:translateY(-3px);
+
+}
+/* ==========================================
+   PUBLICAÇÕES
+========================================== */
+
+.publicacoes{
+
+    padding:90px 8%;
+
+    background:#eef6fb;
+
+}
+
+.publicacoes-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+.publicacoes-grid div{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:35px;
+
+    text-align:center;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+    font-weight:500;
+
+}
+
+.publicacoes-grid div:hover{
+
+    background:#00b4d8;
+
+    color:white;
+
+    transform:translateY(-10px);
+
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+footer{
+
+    background:#002b42;
+
+    color:white;
+
+    text-align:center;
+
+    padding:30px;
+
+    font-size:15px;
+
+}
+
+/* ==========================================
+   RESPONSIVO
+========================================== */
+
+@media(max-width:1100px){
+
+.indicadores-grid,
+.cards{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+.vantagens{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+.publicacoes-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.hero-conteudo h1{
+
+    font-size:38px;
+
+}
+
+.hero-conteudo p{
+
+    font-size:18px;
+
+}
+
+.indicadores-grid,
+.cards,
+.vantagens,
+.publicacoes-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.projeto{
+
+    text-align:center;
+
+}
 
 }

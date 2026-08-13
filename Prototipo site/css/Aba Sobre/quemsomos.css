@@ -1,0 +1,724 @@
+/* =====================================
+   QUEM SOMOS - SEDEC
+===================================== */
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+
+body{
+
+    background:#f5f8fa;
+    color:#333;
+
+}
+
+/* ==========================================
+                HEADER PADRÃO
+========================================== */
+
+header{
+
+    width:100%;
+    height:90px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 60px;
+
+    position:fixed;
+    top:0;
+    left:0;
+
+    z-index:1000;
+
+    background:rgba(0,0,0,.35);
+
+    backdrop-filter:blur(8px);
+
+}
+
+/* LOGO */
+
+.logo{
+
+    width:150px;
+    height:auto;
+
+}
+
+/* MENU */
+
+nav{
+
+    display:flex;
+    gap:45px;
+
+}
+
+nav a{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+nav a:hover{
+
+    color:#00a8ff;
+
+}
+
+/* =====================================
+   HERO
+===================================== */
+
+
+.hero-quem{
+
+    height:600px;
+
+    background:
+    linear-gradient(
+    rgba(0,55,90,.80),
+    rgba(0,120,160,.75)
+    ),
+    url("../../img/tecnologia.png");
+
+
+    background-size:cover;
+
+    background-position:center;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    color:white;
+
+}
+
+
+
+.hero-conteudo{
+
+    max-width:1000px;
+
+    padding:40px;
+
+}
+
+
+
+.hero-conteudo span{
+
+    color:#b9f6ff;
+
+    font-size:16px;
+
+    letter-spacing:4px;
+
+    font-weight:600;
+
+}
+
+
+
+.hero-conteudo h1{
+
+    font-size:52px;
+
+    margin:25px 0;
+
+}
+
+
+
+.hero-conteudo p{
+
+    font-size:20px;
+
+    line-height:1.8;
+
+}
+
+
+
+
+
+
+
+/* =====================================
+   QUEM SOMOS
+===================================== */
+
+
+.quem{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:50px;
+
+    padding:90px 10%;
+
+    background:white;
+
+}
+
+
+
+.quem .imagem{
+
+    flex:1;
+
+}
+
+
+
+.quem .imagem video{
+
+
+width:100%;
+
+height:400px;
+
+object-fit:cover;
+
+border-radius:25px;
+
+box-shadow:0 15px 35px rgba(0,0,0,.15);
+
+
+}
+
+
+.quem .texto{
+
+    flex:1;
+
+}
+
+
+
+.quem h2{
+
+    color:#003b5c;
+
+    font-size:38px;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.quem p{
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    margin-bottom:20px;
+
+}
+
+
+
+
+
+
+
+/* =====================================
+   O QUE FAZEMOS
+===================================== */
+
+
+.atuacao{
+
+    padding:80px 10%;
+
+    text-align:center;
+
+}
+
+
+
+.atuacao h2{
+
+    font-size:38px;
+
+    color:#003b5c;
+
+    margin-bottom:50px;
+
+}
+
+
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+}
+
+
+
+.card{
+
+    background:white;
+
+    padding:35px 25px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    border-top:5px solid #00b4d8;
+
+    transition:.3s;
+
+}
+
+
+
+.card:hover{
+
+    transform:translateY(-10px);
+
+    background:#003b5c;
+
+    color:white;
+
+}
+
+
+
+.card h3{
+
+    margin-bottom:20px;
+
+    font-size:22px;
+
+}
+
+
+
+.card p{
+
+    line-height:1.7;
+
+}
+
+
+
+
+
+
+
+
+/* =====================================
+   COMO TRABALHAMOS
+===================================== */
+
+
+.processo{
+
+    background:#003b5c;
+
+    padding:80px 10%;
+
+    text-align:center;
+
+    color:white;
+
+}
+
+
+
+.processo h2{
+
+    font-size:38px;
+
+    margin-bottom:45px;
+
+}
+
+
+
+.etapas{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:25px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+.etapa{
+
+    background:white;
+
+    color:#333;
+
+    width:230px;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    transition:.3s;
+
+}
+
+
+
+.etapa:hover{
+
+    transform:translateY(-10px);
+
+}
+
+
+
+.etapa span{
+
+    font-size:45px;
+
+    color:#00b4d8;
+
+    font-weight:bold;
+
+}
+
+
+
+.etapa h3{
+
+    margin:15px 0;
+
+}
+
+
+
+
+
+
+
+/* =====================================
+   TECNOLOGIAS
+===================================== */
+
+
+.tecnologias{
+
+    padding:80px 10%;
+
+    text-align:center;
+
+}
+
+
+
+.tecnologias h2{
+
+    font-size:38px;
+
+    color:#003b5c;
+
+    margin-bottom:50px;
+
+}
+
+
+
+.tecnologia-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+}
+
+
+
+.tecnologia-grid div{
+
+    background:white;
+
+    padding:35px 25px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.1);
+
+    transition:.3s;
+
+}
+
+
+
+.tecnologia-grid div:hover{
+
+    transform:translateY(-10px);
+
+}
+
+
+
+.tecnologia-grid h3{
+
+    margin:15px 0;
+
+    color:#003b5c;
+
+}
+
+
+
+.tecnologia-grid p{
+
+    line-height:1.6;
+
+}
+
+
+
+
+
+
+
+/* =====================================
+   GALERIA
+===================================== */
+
+
+.galeria{
+
+    background:#eef7fa;
+
+    padding:80px 10%;
+
+    text-align:center;
+
+}
+
+
+
+.galeria h2{
+
+    color:#003b5c;
+
+    font-size:38px;
+
+    margin-bottom:40px;
+
+}
+
+
+
+.galeria-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+
+
+.galeria-grid img{
+
+    width:100%;
+
+    height:280px;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+    transition:.3s;
+
+}
+
+
+
+.galeria-grid img:hover{
+
+    transform:scale(1.05);
+
+}
+
+
+
+
+
+
+
+
+/* =====================================
+   MISSÃO E VISÃO
+===================================== */
+
+
+.missao{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:30px;
+
+    padding:80px 10%;
+
+}
+
+
+
+.missao div{
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:25px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.1);
+
+}
+
+
+
+.missao h2{
+
+    color:#003b5c;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.missao p{
+
+    font-size:18px;
+
+    line-height:1.8;
+
+}
+
+
+
+
+
+
+
+footer{
+
+    background:#002b42;
+
+    color:white;
+
+    text-align:center;
+
+    padding:30px;
+
+}
+
+
+
+
+
+
+
+/* RESPONSIVO */
+
+
+@media(max-width:1000px){
+
+
+.cards{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+
+.tecnologia-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+
+.quem{
+
+    flex-direction:column;
+
+}
+
+
+}
+
+
+
+@media(max-width:600px){
+
+
+.cards,
+.tecnologia-grid,
+.galeria-grid,
+.missao{
+
+    grid-template-columns:1fr;
+
+}
+
+
+.hero-conteudo h1{
+
+    font-size:32px;
+
+}
+
+
+.quem{
+
+    padding:50px 20px;
+
+}
+
+
+}

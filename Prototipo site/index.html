@@ -13,199 +13,6 @@
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Poppins,sans-serif;
-}
-
-body{
-background:#f5f7fa;
-color:#222;
-}
-
-header{
-
-height:90px;
-background:#0d47a1;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:0 80px;
-color:white;
-position:fixed;
-width:100%;
-top:0;
-box-shadow:0 5px 15px rgba(0,0,0,.2);
-
-}
-
-header h2{
-font-size:28px;
-}
-
-nav a{
-
-text-decoration:none;
-color:white;
-margin-left:30px;
-font-weight:500;
-
-}
-
-.overlay{
-
-position:absolute;
-width:100%;
-height:100%;
-background:rgba(0,35,90,.72);
-
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-color:white;
-text-align:center;
-
-}
-
-.overlay h1{
-
-font-size:60px;
-margin-bottom:20px;
-
-}
-
-.overlay p{
-
-font-size:22px;
-width:70%;
-margin-bottom:40px;
-
-}
-
-.btn{
-
-padding:15px 40px;
-background:#1e88e5;
-color:white;
-border-radius:50px;
-text-decoration:none;
-margin:10px;
-transition:.3s;
-
-}
-
-.btn:hover{
-
-background:#1565c0;
-
-}
-
-section{
-
-padding:80px;
-
-}
-
-.titulo{
-
-font-size:40px;
-color:#0d47a1;
-margin-bottom:40px;
-text-align:center;
-
-}
-
-.cards{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-
-}
-
-.card{
-
-background:white;
-padding:40px;
-border-radius:15px;
-box-shadow:0 5px 20px rgba(0,0,0,.08);
-transition:.4s;
-
-}
-
-.card:hover{
-
-transform:translateY(-10px);
-
-}
-
-.card h3{
-
-margin-bottom:20px;
-color:#1565c0;
-
-}
-
-.indicadores{
-
-display:grid;
-grid-template-columns:repeat(4,1fr);
-text-align:center;
-gap:20px;
-
-}
-
-.numero{
-
-font-size:55px;
-font-weight:bold;
-color:#0d47a1;
-
-}
-
-.equipe{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-
-}
-
-.pessoa{
-
-background:white;
-border-radius:15px;
-overflow:hidden;
-box-shadow:0 5px 20px rgba(0,0,0,.1);
-
-}
-
-.pessoa img{
-
-width:100%;
-height:300px;
-object-fit:cover;
-
-}
-
-.info{
-
-padding:20px;
-
-}
-
-footer{
-
-background:#0d47a1;
-color:white;
-padding:50px;
-text-align:center;
-
-}
-
 </style>
 
 </head>
@@ -216,22 +23,28 @@ text-align:center;
      CABEÇALHO
 ===================================== -->
 
-<header>
+<header id="topo">
 
-<img src="img/sedec2.png" alt="Logo SEDEC" class="logo">
+<img src="img/sedec.png" alt="Logo SEDEC" class="logo">
 
 <nav>
 
 <a href="#">Início</a>
-<a href="paginas/sobre.html">Sobre</a>
+<a href="paginas/Sobre/quemsomos.html">Sobre</a>
 <a href="#projetos">Projetos</a>
 <a href="#equipe">Equipe</a>
 <a href="#portal">Nossas Ferramentas</a>
+
+<!-- 
 <a href="#noticias">Notícias</a>
+-->
+
 <a href="#galeria">Galeria</a>
 <a href="#contato">Contato</a>
 
 </nav>
+
+<img src="img/geo.png" alt="Logo SEDEC" class="logo">
 
 </header>
 
@@ -242,10 +55,9 @@ text-align:center;
 
 <section class="hero">
 
-<img src="img/pacaas1.jpg" 
-alt="Imagem pacaas" 
-class="pacaas">
-
+ <img src="img/pacaas1.jpg" 
+         alt="Imagem Pacaás" 
+         class="pacaas"> 
 
 <div class="overlay">
 
@@ -260,15 +72,15 @@ Transformando dados em inteligência para impulsionar o desenvolvimento do Estad
 <div class="btn-container">
 
 <a class="btn" 
-href="https://geo.sedec.ro.gov.br/?page=Com%C3%A9rcio-Exterior&views=Com%C3%A9rcio-Exterior---Munic%C3%ADpio"
-target="_blank">
-Portal de Dados
-</a>
-
-<a class="btn" 
 href="https://rondonia.ro.gov.br/portal/"
 target="_blank">
 Portal do Governo
+</a>
+
+<a class="btn" 
+href="https://geo.sedec.ro.gov.br/?page=Com%C3%A9rcio-Exterior&views=Com%C3%A9rcio-Exterior---Munic%C3%ADpio"
+target="_blank">
+Portal de Dados
 </a>
 
 </div>
@@ -330,9 +142,8 @@ Combinamos tecnologia, dados e expertise para impulsionar o desenvolvimento em t
 Análise espacial avançada e modelagem de dados geográficos para subsidiar políticas públicas de desenvolvimento regional com precisão e eficiência.
 </p>
 
-<a href="paginas/territorial.html">Saiba Mais →</a>
-    
-
+<a href="paginas/nossas-especialidades/territorial.html">
+    Saiba Mais →
 </a>
 
 </div>
@@ -347,7 +158,7 @@ Análise espacial avançada e modelagem de dados geográficos para subsidiar pol
 Plataforma integrada de geoprocessamento com base de dados geoespaciais, permitindo visualização, análise e compartilhamento de mapas interativos.
 </p>
 
-<a href="./paginas/sig.html">
+<a href="./paginas/nossas-especialidades/sig.html">
     Saiba Mais →
 </a>
 
@@ -365,7 +176,7 @@ Plataforma integrada de geoprocessamento com base de dados geoespaciais, permiti
 Dashboards analíticos e painéis interativos que transformam dados brutos em insights estratégicos para tomada de decisão baseada em evidências.
 </p>
 
-<a href="./paginas/inteligencia.html">
+<a href="./paginas/nossas-especialidades/inteligencia.html">
     Saiba Mais →
 </a>
 
@@ -383,7 +194,7 @@ Dashboards analíticos e painéis interativos que transformam dados brutos em in
 Estudos e projetos voltados ao fortalecimento da economia regional, atração de investimentos e geração de emprego e renda nos municípios.
 </p>
 
-<a href="./paginas/desenvolvimento.html">
+<a href="./paginas/nossas-especialidades/desenvolvimento.html">
     Saiba Mais →
 </a>
 
@@ -401,7 +212,7 @@ Estudos e projetos voltados ao fortalecimento da economia regional, atração de
 Elaboração e monitoramento de planos estratégicos de longo prazo, alinhando recursos e capacidades às demandas do desenvolvimento estadual.
 </p>
 
-<a href="./paginas/planejamento.html">
+<a href="./paginas/nossas-especialidades/planejamento.html">
     Saiba Mais →
 </a>
 
@@ -419,7 +230,7 @@ Elaboração e monitoramento de planos estratégicos de longo prazo, alinhando r
 Produção e análise de dados geoespaciais utilizando técnicas avançadas de sensoriamento remoto, drones e processamento digital de imagens.
 </p>
 
-<a href="./paginas/geoprocessamento.html">
+<a href="./paginas/nossas-especialidades/geoprocessamento.html">
     Saiba Mais →
 </a>
 
@@ -575,80 +386,115 @@ Dashboards
 
 <section id="projetos">
 
-<div class="titulo-projetos">
+    <div class="titulo-projetos">
 
-<span>PROJETOS</span>
+        <span>PROJETOS</span>
 
-<h2 class="titulo">
-    Projetos em Destaque
-</h2>
+        <h2 class="titulo">
+            Projetos em Destaque
+        </h2>
 
-</div>
-
-
-<div class="cards-projetos">
+    </div>
 
 
-<div class="card-projeto">
-
-<h3>
-🚜 <a href="paginas/🚜Agricultura.html">Agricultura</a>
-</h3>
-
-<p>
-Monitoramento agrícola por mapas interativos.
-</p>
-
-</div>
+    <div class="cards-projetos">
 
 
+        <!-- PROJETO 01 -->
 
-<div class="card-projeto">
+        <div class="card-destaque">
 
-<h3>
-🏙 <a href="paginas/planejamento.html">Planejamento Urbano</a>
-</h3>
+            <h3>
 
-<p>
-Mapeamento das cidades do estado.
-</p>
+                🚜
 
-</div>
+                <a href="./paginas/projeto-destaques/agropecuaria.html">
+                    Agropecuária
+                </a>
+
+            </h3>
+
+
+            <p>
+                Monitoramento agropecuário por mapas interativos.
+            </p>
+
+        </div>
 
 
 
-<div class="card-projeto">
+        <!--
+        PROJETO 02
 
-<h3>
-🌳 <a href="paginas/meioambiente.html">Meio Ambiente</a>
-</h3>
+        <div class="card-destaque">
 
-<p>
-Análises ambientais utilizando SIG.
-</p>
+            <h3>
 
-</div>
+                🏙
+
+                <a href="./paginas/projeto-destaques/urbano.html">
+                    Planejamento Urbano
+                </a>
+
+            </h3>
+
+            <p>
+                Mapeamento das cidades do estado.
+            </p>
+
+        </div>
+        -->
 
 
-<div class="card-projeto">
 
-<h3>
-🛰 <a href="paginas/satelites.html">Satélites</a>
-</h3>
+        <!-- PROJETO 03 -->
 
-<p>
-Integração de imagens orbitais.
-</p>
+        <div class="card-destaque">
 
-</a>
+            <h3>
 
-</div>
+                🌳
 
-</div>
+                <a href="./paginas/projeto-destaques/meioambiente.html">
+                    Meio Ambiente
+                </a>
+
+            </h3>
+
+
+            <p>
+                Análises ambientais utilizando SIG.
+            </p>
+
+        </div>
+
+
+
+        <!-- PROJETO 04 -->
+
+        <div class="card-destaque">
+
+            <h3>
+
+                🛰
+
+                <a href="./paginas/projeto-destaques/satelites.html">
+                    Satélites
+                </a>
+
+            </h3>
+
+
+            <p>
+                Integração de imagens orbitais.
+            </p>
+
+        </div>
+
+
+    </div>
 
 </section>
-
-
 
 <!-- =====================================
      NOSSA EQUIPE
@@ -669,6 +515,7 @@ Integração de imagens orbitais.
 <div class="cards-equipe">
 
 
+<!-- COORDENADOR -->
 
 <div class="card-equipe">
 
@@ -681,31 +528,12 @@ Coordenador da Geointeligência
 </h3>
 
 <p>
-Alexandre
+Alexandre Ferraz
 </p>
 
-</div>
+</div>  
 
-
-
-<div class="card-equipe">
-
-<img src="imagem/supervisor.png" 
-alt="Supervisor" 
-class="foto-equipe">
-
-<h3>
-Supervisor
-</h3>
-
-<p>
-Nome do Supervisor
-</p>
-
-</div>
-
-
-
+<!-- GEÓGRAFO / ANALISTA GIS -->
 
 <div class="card-equipe">
 
@@ -715,11 +543,11 @@ class="foto-equipe">
 
 <h3>
 Geógrafo da Geointeligência
-<h3>
+</h3>
 
 <h3>
 Analista GIS da Geointeligência
-<h3>
+</h3>
 
 <p>
 Emmanuel Nazareth
@@ -727,27 +555,7 @@ Emmanuel Nazareth
 
 </div>
 
-
-
-
-<div class="card-equipe">
-
-<img src="img/$$$.png" 
-alt="Analista GIS" 
-class="foto-equipe">
-
-<h3>
-Analista GIS da Geointeligência
-</h3>
-
-<p>
-Nome do Analista
-</p>
-
-</div>
-
-
-
+<!-- DESENVOLVEDOR -->
 
 <div class="card-equipe">
 
@@ -765,7 +573,7 @@ Luiz E. Gutierres
 
 </div>
 
-
+<!-- ESTAGIÁRIO1 -->
 
 <div class="card-equipe">
 
@@ -782,6 +590,8 @@ Romúlo M. Domingues
 
 </div>
 
+<!-- ESTAGIÁRIO2 -->
+
 <div class="card-equipe">
 
 <img src="img/lucas.png" alt="Estagiário TI da Geointeligência" 
@@ -797,7 +607,7 @@ Lucas G. Oliveira
 
 </div>
 
-
+<!-- ESTAGIÁRIO3 -->
 
 <div class="card-equipe">
 
@@ -818,9 +628,11 @@ Alex K. Souza
 </div>
 
 </section>
+
+
 <!-- =====================================
      NOTÍCIAS
-===================================== -->
+===================================== --
 
 <section id="noticias">
 
@@ -853,9 +665,7 @@ SEDEC amplia ações de desenvolvimento econômico
 Novas iniciativas utilizando dados e tecnologia fortalecem o planejamento do Estado de Rondônia.
 </p>
 
-<a href="#" class="ler-mais">
-Leia mais →
-</a>
+<a href="./paginas/ultimas-noticias/sedec.html">Leia mais →</a>
 
 </div>
 
@@ -874,9 +684,7 @@ Portal de Dados recebe novas atualizações
 Ferramentas de geointeligência auxiliam gestores na tomada de decisões estratégicas.
 </p>
 
-<a href="#" class="ler-mais">
-Leia mais →
-</a>
+<a href="./paginas/ultimas-noticias/portal.html">Leia mais →</a>
 
 </div>
 
@@ -895,9 +703,7 @@ Novos mapas interativos disponíveis
 Usuários podem consultar informações territoriais do Estado.
 </p>
 
-<a href="#" class="ler-mais">
-Leia mais →
-</a>
+<a href="./paginas/ultimas-noticias/novos.html">Leia mais →</a>
 
 </div>
 
@@ -907,9 +713,146 @@ Leia mais →
 
 </section>
 
+-->
+
 <!-- =====================================
      GALERIA
 ===================================== -->
+
+<section id="galeria">
+
+
+    <div class="titulo-galeria">
+
+        <span>GALERIA</span>
+
+        <h2 class="titulo">
+            Galeria de Imagens
+        </h2>
+
+    </div>
+
+
+    <p class="subtitulo-galeria">
+
+        Conheça algumas ações, projetos e atividades desenvolvidas
+        pela Secretaria de Desenvolvimento Econômico.
+
+    </p>
+
+
+    <div class="galeria">
+
+
+        <!-- =====================================
+             FOTO 01
+        ====================================== -->
+
+        <div class="foto">
+
+            <a href="img/reuniao1.png">
+
+                <img
+                    src="img/reuniao1.png"
+                    alt="Reunião da Secretaria de Desenvolvimento Econômico"
+                >
+
+            </a>
+
+        </div>
+
+
+
+        <!-- =====================================
+             FOTO 02
+        ====================================== -->
+
+        <div class="foto">
+
+            <a href="img/estagio1.png">
+
+                <img
+                    src="img/estagio1.png"
+                    alt="Programa de estágio"
+                >
+
+            </a>
+
+        </div>
+
+
+
+        <!-- =====================================
+             FOTO 03
+        ====================================== -->
+
+        <div class="foto">
+
+            <a href="img/reuniao2.png">
+
+                <img
+                    src="img/reuniao2.png"
+                    alt="Reunião institucional"
+                >
+
+            </a>
+
+        </div>
+
+
+
+        <!-- =====================================
+             FOTO 04
+        ====================================== -->
+
+        <div class="foto">
+
+            <a href="img/galeria4.jpg">
+
+                <img
+                    src="img/galeria4.jpg"
+                    alt="Atividade da SEDEC"
+                >
+
+            </a>
+
+        </div>
+
+
+
+        <!-- =====================================
+             CARD - ACESSAR GALERIA COMPLETA
+        ====================================== -->
+
+        <div class="card-projeto">
+
+            <h3>
+
+                <a href="./paginas/Galeria/fotos.html">
+
+                    Imagens
+
+                </a>
+
+            </h3>
+
+
+            <p>
+
+                Acesso à nossa Galeria.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+<!-- =====================================
+     GALERIA
+===================================== --
 
 <section id="galeria">
 
