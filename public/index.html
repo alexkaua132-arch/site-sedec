@@ -1,0 +1,664 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Atlas</title>
+<meta name="theme-color" content="#050b1f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Atlas">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#050b1f;--bg-2:#0a1636;--grid:#1d3a7a40;--glass:#0b1a40cc;--glass-2:#10245acc;--edge:#3d7bff55;--edge-hi:#6fb6ff;
+  --fg:#e9f1ff;--muted:#8ea6d6;--accent:#58b4ff;--accent-2:#8d7bff;--warm:#ffc46b;--bad:#ff8a8a;--ok:#6ee7b7;
+  --display:"Chakra Petch","Segoe UI",system-ui,sans-serif;--body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:var(--bg);color:var(--fg)}
+body{font-family:var(--body);font-size:15px;line-height:1.45;overflow:hidden;
+  background:radial-gradient(1200px 700px at 50% 38%,#1b3d9a66,transparent 65%),radial-gradient(800px 500px at 50% 110%,#5b3cff33,transparent 70%),linear-gradient(var(--bg),var(--bg-2));
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer}
+[hidden]{display:none!important}
+:focus-visible{outline:2px solid var(--edge-hi);outline-offset:2px;border-radius:8px}
+.stage{position:relative;height:100%;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr) auto auto auto auto;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:10px 12px;gap:8px}
+.gridbg{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(ellipse 80% 70% at 50% 45%,#000 35%,transparent 85%)}
+.top{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);min-width:0;align-items:start;gap:10px;z-index:3}
+.tl,.tr{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.tr{justify-content:flex-end;text-align:right}
+.tr b{color:var(--fg);font-weight:500}
+.mode{text-align:center}
+.mode .lbl{font-family:var(--display);font-weight:600;letter-spacing:.5em;font-size:14px;color:var(--accent);padding-left:.5em;text-shadow:0 0 12px #58b4ff99}
+.mode .dots{height:6px;margin:5px auto 0;width:160px;background:radial-gradient(circle,#58b4ff 1px,transparent 1.5px) 0 0/6px 6px;opacity:.6}
+.iconbtn{background:#0b1a4080;border:1px solid var(--edge);border-radius:10px;padding:6px 10px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--fg)}
+.iconbtn:hover{border-color:var(--edge-hi)}
+.center{position:relative;min-height:0;display:grid;place-items:center;z-index:2}
+#orb{position:absolute;width:min(100%,64vh);aspect-ratio:1;max-width:100%;height:auto}
+.spot{position:relative;width:min(560px,92%);z-index:4;transition:opacity .35s,transform .35s}
+.spot.off{opacity:0;transform:scale(.92) translateY(10px);pointer-events:none}
+.card{background:linear-gradient(160deg,var(--glass-2),var(--glass));border:1px solid var(--edge);border-radius:14px;box-shadow:0 0 0 1px #0004 inset,0 0 30px #2b6dff33,0 18px 40px #0008;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:14px 16px;min-width:0;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,#ffffff06 0 1px,transparent 1px 3px);pointer-events:none}
+.card .hd{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.card .ic{width:22px;height:22px;border-radius:6px;border:1px solid var(--edge);display:grid;place-items:center;color:var(--accent);flex:none}
+.card .eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.card h3{font-family:var(--display);font-weight:600;font-size:17px;margin:0;line-height:1.2;text-wrap:balance}
+.card .pill{margin-left:auto;font-family:var(--mono);font-size:10px;letter-spacing:.1em;border:1px solid var(--edge);border-radius:999px;padding:2px 8px;color:var(--accent);white-space:nowrap}
+.card .pill.warn{color:var(--warm);border-color:#ffc46b55}
+.card p{margin:6px 0 0;color:#c9d8f5;font-size:14px;overflow-wrap:anywhere}
+.card .src{margin-top:10px;display:flex;justify-content:space-between;gap:8px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+.card .src a{color:var(--accent);text-decoration:none}
+.big .temp{font-family:var(--display);font-size:46px;font-weight:600;line-height:1;font-variant-numeric:tabular-nums}
+.wx{display:flex;align-items:center;gap:14px}
+.wx .meta{font-family:var(--mono);font-size:12px;color:var(--muted);display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
+.banner{height:88px;margin:4px -16px 10px;background:radial-gradient(circle at 20% 40%,#58b4ff55,transparent 45%),radial-gradient(circle at 80% 70%,#8d7bff55,transparent 45%),repeating-linear-gradient(90deg,#58b4ff14 0 1px,transparent 1px 18px),#0a1a44;display:flex;align-items:flex-end;padding:10px 16px;font-family:var(--display);font-weight:700;font-size:26px;letter-spacing:.06em;text-transform:uppercase;color:#ffffffd0;text-shadow:0 0 18px #58b4ff;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.lst{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+.lst li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px;font-size:14px;color:#c9d8f5}
+.lst li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);margin-top:7px}
+.lst .t{font-family:var(--mono);font-size:12px;color:var(--warm);margin-right:6px}
+.dock{position:relative;z-index:3;display:flex;gap:10px;overflow-x:auto;padding:6px 2px 8px;scroll-snap-type:x mandatory;min-height:0}
+.dock:empty{display:none}
+.dock .card{flex:0 0 220px;padding:10px 12px;scroll-snap-align:start;cursor:pointer;transition:transform .2s,border-color .2s;animation:dockin .45s ease-out both}
+.dock .card:hover{transform:translateY(-3px);border-color:var(--edge-hi)}
+.dock .card.on{border-color:var(--edge-hi);box-shadow:0 0 0 1px var(--edge-hi),0 0 24px #58b4ff55}
+.dock .card h3{font-size:14px}
+.dock .card p{font-size:12px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.dock .card .banner{height:44px;font-size:15px;margin:2px -12px 6px;padding:6px 12px}
+.dock .card .temp{font-size:28px}
+.dock .card .src,.dock .card .lst,.dock .card .pill{display:none}
+@keyframes dockin{from{opacity:0;transform:translateY(16px) scale(.95)}to{opacity:1;transform:none}}
+.scan{text-align:center}
+.scan h3{font-family:var(--mono);font-size:18px;font-weight:500;margin:4px 0}
+.scan .chips{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.scan .chips span{font-family:var(--mono);font-size:10px;letter-spacing:.12em;border:1px solid var(--edge);border-radius:4px;padding:3px 8px;color:var(--muted);transition:.25s}
+.scan .chips span.lit{color:var(--bg);background:var(--accent);border-color:var(--accent);box-shadow:0 0 12px var(--accent)}
+.caption{position:relative;z-index:3;text-align:center;font-weight:600;font-size:clamp(16px,2.1vw,22px);line-height:1.35;min-height:1.4em;max-width:60ch;margin:0 auto;text-shadow:0 2px 10px #000,0 0 2px #000;text-wrap:balance}
+.caption.dim{color:var(--muted);font-weight:500;font-size:14px}
+.controls{position:relative;z-index:3;min-width:0;display:flex;gap:8px;align-items:center;justify-content:center;max-width:720px;margin:0 auto;width:100%}
+.controls input{flex:1;min-width:0;background:#0b1a40b3;border:1px solid var(--edge);border-radius:999px;padding:11px 16px;font-size:16px}
+.controls input::placeholder{color:var(--muted)}
+.mic{width:50px;height:50px;border-radius:50%;flex:none;display:grid;place-items:center;border:1px solid var(--edge-hi);color:var(--fg);background:radial-gradient(circle,#2f6bff,#14307a 70%);box-shadow:0 0 18px #3d7bff88}
+.mic.on{animation:pulse 1.1s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 8px #58b4ff33,0 0 26px #58b4ffcc}}
+.go{border:1px solid var(--edge);background:#0b1a40b3;border-radius:999px;padding:11px 16px;flex:none;font-family:var(--mono);font-size:12px;letter-spacing:.1em}
+.go:hover{border-color:var(--edge-hi)}
+.hint{position:relative;z-index:3;margin:0 auto;max-width:640px;font-size:13px;color:var(--warm);text-align:center}
+.drawer{position:fixed;top:0;bottom:0;left:0;width:min(380px,92vw);z-index:30;background:#071232f2;border-right:1px solid var(--edge);padding:calc(14px + env(safe-area-inset-top,0px)) 16px calc(14px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));overflow-y:auto;display:flex;flex-direction:column;gap:14px;transform:translateX(-102%);transition:transform .3s}
+.drawer.open{transform:none}
+.drawer h2{font-family:var(--display);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin:0 0 6px;display:flex;justify-content:space-between}
+.drawer h2 span{color:var(--accent);font-family:var(--mono)}
+.dhead{display:flex;justify-content:space-between;align-items:center}
+.dhead b{font-family:var(--display);letter-spacing:.2em}
+.ul{list-style:none;margin:0;padding:0}
+.ul li{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:8px;padding:7px 0;border-top:1px solid #3d7bff26;font-size:14px;align-items:start}
+.ul li:first-child{border-top:0}
+.ul li.done .tx{color:var(--muted);text-decoration:line-through}
+.ul .w{display:block;font-family:var(--mono);font-size:11px;color:var(--warm)}
+.ul .w.late{color:var(--bad)}
+.ul input{accent-color:var(--accent);margin-top:3px}
+.x{background:none;border:0;color:var(--muted);font-size:18px;line-height:1;padding:0 4px}
+.x:hover{color:var(--bad)}
+.none{color:var(--muted);font-size:13px;margin:0}
+.log{display:flex;flex-direction:column;gap:8px;font-size:14px}
+.log .m{padding:8px 10px;border-radius:10px;background:#10245a99;overflow-wrap:anywhere;white-space:pre-wrap}
+.log .m.u{background:transparent;border:1px solid #3d7bff40;align-self:flex-end;max-width:90%}
+.cfg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cfg label{font-size:12px;color:var(--muted);display:flex;flex-direction:column;gap:4px;min-width:0}
+.cfg input{background:#0b1a40;border:1px solid var(--edge);border-radius:8px;padding:7px 9px;min-width:0;width:100%}
+.cfg button{grid-column:1/-1}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.scrim{position:fixed;inset:0;background:#0007;z-index:29}
+.toast{position:fixed;left:50%;transform:translateX(-50%);top:calc(14px + env(safe-area-inset-top,0px));z-index:40;background:var(--warm);color:#2a1800;font-weight:600;padding:10px 16px;border-radius:12px;max-width:calc(100% - 32px)}
+.login{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:16px;background:#050b1fee}
+.login form{width:min(360px,100%);display:flex;flex-direction:column;gap:12px;text-align:center}
+.login h1{font-family:var(--display);letter-spacing:.4em;margin:0;color:var(--accent);text-shadow:0 0 14px #58b4ff99}
+.login input{background:#0b1a40;border:1px solid var(--edge);border-radius:999px;padding:12px 16px;font-size:16px;text-align:center}
+.login .err{color:var(--bad);font-size:13px;min-height:1.2em;margin:0}
+.finwrap{position:fixed;inset:0;z-index:45;background:#0e0f12}
+.finwrap.off{visibility:hidden;pointer-events:none}
+.finwrap iframe{width:100%;height:100%;border:0;display:block}
+.fin-lst{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+.fin-lst li{display:flex;justify-content:space-between;gap:8px;font-size:14px;color:#c9d8f5;min-width:0}
+.fin-lst li span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fin-lst b{font-family:var(--mono);font-weight:500;color:var(--fg);white-space:nowrap}
+.fin-lst .v{font-family:var(--mono);font-size:11px;color:var(--warm);margin-left:6px}
+.wa{display:flex;flex-direction:column;gap:8px}
+.wa input{background:#0b1a40;border:1px solid var(--edge);border-radius:8px;padding:8px 10px;min-width:0;width:100%}
+@media (max-width:700px){
+  .tl .hide-s,.tr .hide-s{display:none}
+  .mode .lbl{font-size:12px;letter-spacing:.35em}
+  #orb{width:min(100%,46vh)}
+  .card h3{font-size:16px}
+  .big .temp{font-size:38px}
+  .dock .card{flex-basis:180px}
+  .mode .dots{width:110px}
+  .go{padding:11px 13px}
+  .go span{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="gridbg"></div>
+  <header class="top">
+    <div class="tl"><button class="iconbtn" id="menu" aria-label="Abrir painel">☰<span class="hide-s"> PAINEL</span></button><button class="iconbtn" id="finBtn" aria-label="Abrir finanças">◈<span class="hide-s"> FINANÇAS</span></button><span class="hide-s" id="asst-name">ATLAS</span><span class="hide-s" id="sync">conectando</span></div>
+    <div class="mode"><div class="lbl" id="mode">PRONTO</div><div class="dots"></div></div>
+    <div class="tr"><span><b id="clock">--:--</b></span><span class="hide-s" id="date"></span></div>
+  </header>
+  <section class="center">
+    <canvas id="orb" width="900" height="900" aria-hidden="true"></canvas>
+    <div class="spot off" id="spot"></div>
+  </section>
+  <div class="dock" id="dock" aria-label="Cartões do briefing"></div>
+  <div class="caption dim" id="caption">Diga ou digite "bom dia" para o briefing do dia.</div>
+  <p class="hint" id="hint" hidden></p>
+  <form class="controls" id="form" autocomplete="off">
+    <button type="button" class="go" id="brief"><span>BOM DIA</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="vertical-align:-2px;margin-left:4px"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg></button>
+    <input id="q" placeholder="Fale com o Atlas…" aria-label="Mensagem">
+    <button type="button" class="mic" id="mic" aria-label="Falar"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button>
+  </form>
+</div>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" aria-label="Painel">
+  <div class="dhead"><b id="d-name">ATLAS</b><button class="iconbtn" id="close">FECHAR</button></div>
+  <label class="cfg" style="display:flex;flex-direction:row;align-items:center;gap:8px;font-size:13px;color:var(--fg)"><input type="checkbox" id="tts" style="width:auto"> Falar em voz alta</label>
+  <section><h2>Lembretes <span id="rc">0</span></h2><ul class="ul" id="rl"></ul><p class="none" id="rn">Peça "me lembra de…" e ele aparece aqui.</p></section>
+  <section><h2>Notas <span id="nc">0</span></h2><ul class="ul" id="nl"></ul><p class="none" id="nn">Diga "anota que…" para guardar algo.</p></section>
+  <section><h2>Finanças</h2><p class="none" id="finInfo">Abra Finanças e importe sua planilha .xlsx uma vez.</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><button class="iconbtn" id="finOpen2">ABRIR FINANÇAS</button></div></section>
+  <section><h2>WhatsApp</h2>
+    <div class="wa"><input id="waNum" inputmode="tel" placeholder="Seu WhatsApp com DDD" aria-label="Número do WhatsApp">
+    <button class="iconbtn" id="waSend">ENVIAR RESUMO DO DIA NO WHATSAPP</button>
+    <p class="none">Abre o WhatsApp com o resumo pronto (clima, finanças, lembretes e notícias). É só tocar em enviar.</p></div></section>
+  <section><h2>Conversa</h2><div class="log" id="log"><p class="none">Nenhuma conversa ainda.</p></div></section>
+  <section><h2>Ajustes</h2>
+    <form class="cfg" id="cfg"><label>Seu nome<input id="cfg-name" value="Alex"></label><label>Assistente<input id="cfg-asst" value="Atlas"></label><button class="iconbtn" type="submit">SALVAR</button></form>
+  </section>
+  <section><h2>Dados</h2>
+    <p class="none" style="margin-bottom:8px">Lembretes e notas ficam salvos neste aparelho. Use o backup para levar de um aparelho para outro.</p>
+    <div class="row"><button class="iconbtn" id="exp">EXPORTAR BACKUP</button><button class="iconbtn" id="imp">IMPORTAR</button><button class="iconbtn" id="refresh">ATUALIZAR BRIEFING</button><button class="iconbtn" id="sair">SAIR</button></div>
+    <input type="file" id="impf" accept="application/json" hidden>
+  </section>
+</aside>
+<div class="finwrap off" id="finWrap"><iframe id="finFrame" title="Finanças"></iframe></div>
+<div class="toast" id="toast" hidden></div>
+
+<div class="login" id="login" hidden>
+  <form id="loginf">
+    <h1>ATLAS</h1>
+    <p class="none">Digite a senha do seu Atlas (a mesma que você colocou em APP_SENHA).</p>
+    <input type="password" id="senha" placeholder="Senha" aria-label="Senha" autocomplete="current-password">
+    <button class="go" type="submit">ENTRAR</button>
+    <p class="err" id="lerr"></p>
+  </form>
+</div>
+
+<script>
+(() => {
+  const $ = (s) => document.querySelector(s);
+  const store = {
+    get(k, d) { try { const v = localStorage.getItem("atlas." + k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } },
+    set(k, v) { try { localStorage.setItem("atlas." + k, JSON.stringify(v)); } catch (e) {} },
+  };
+  const state = { reminders: store.get("lembretes", []), notes: store.get("notas", []), profile: store.get("perfil", { name: "Alex", assistant: "Atlas" }), briefing: store.get("briefing", null), financas: store.get("financas", null) };
+  const FIN_URL = "/financas.html";
+  const turns = [], fired = new Set();
+  let senha = store.get("senha", ""), online = false, busy = false, mode = "idle", running = 0, level = 0, carregando = null;
+  const pad = (n) => String(n).padStart(2, "0");
+  const uid = () => Math.random().toString(36).slice(2, 10);
+  const localISO = (d) => d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()) + "T" + pad(d.getHours()) + ":" + pad(d.getMinutes());
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const safeUrl = (u) => /^https:\/\//i.test(u || "") ? u : "";
+  const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+  const fmtWhen = (iso) => { const d = new Date(iso); if (isNaN(d)) return ""; const n = new Date(), t = new Date(n); t.setDate(n.getDate() + 1); const hm = pad(d.getHours()) + ":" + pad(d.getMinutes()); if (d.toDateString() === n.toDateString()) return "hoje " + hm; if (d.toDateString() === t.toDateString()) return "amanhã " + hm; return d.toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit" }) + " " + hm; };
+  let ttsOn = store.get("tts", true);
+  $("#tts").checked = ttsOn;
+  $("#tts").onchange = (e) => { ttsOn = e.target.checked; store.set("tts", ttsOn); if (!ttsOn) window.speechSynthesis?.cancel(); };
+
+  // ---------- servidor ----------
+  async function api(caminho, opts = {}) {
+    const r = await fetch(caminho, { ...opts, headers: { "content-type": "application/json", "x-atlas-senha": senha, ...(opts.headers || {}) } });
+    const dados = await r.json().catch(() => ({}));
+    if (r.status === 401) { pedirSenha("Senha incorreta."); throw Object.assign(new Error("senha"), { code: "senha" }); }
+    if (!r.ok) throw Object.assign(new Error(dados.erro || "erro"), { code: dados.erro, status: r.status });
+    return dados;
+  }
+  function pedirSenha(msg) { $("#login").hidden = false; $("#lerr").textContent = msg || ""; setTimeout(() => $("#senha").focus(), 50); }
+  $("#loginf").onsubmit = async (e) => {
+    e.preventDefault(); senha = $("#senha").value; $("#lerr").textContent = "Conectando… (o primeiro acesso do dia pode levar até 1 minuto)";
+    try { await api("/api/ping"); store.set("senha", senha); $("#login").hidden = true; iniciar(); }
+    catch (err) { if (err.code !== "senha") $("#lerr").textContent = "Não consegui falar com o servidor. Tente de novo."; }
+  };
+  $("#sair").onclick = () => { store.set("senha", ""); senha = ""; location.reload(); };
+
+  async function carregarBriefing(forcar) {
+    if (carregando) return carregando;
+    carregando = api("/api/briefing" + (forcar ? "?forcar=1" : ""))
+      .then((b) => { state.briefing = b; store.set("briefing", b); online = true; $("#sync").textContent = "online"; return b; })
+      .catch((e) => { $("#sync").textContent = "offline"; return state.briefing; })
+      .finally(() => { carregando = null; });
+    return carregando;
+  }
+
+  // ---------- modo / relógio ----------
+  const LABEL = { idle: "PRONTO", listening: "OUVINDO", thinking: "PROCESSANDO", speaking: "FALANDO", scanning: "ATUALIZANDO" };
+  function setMode(m) { mode = m; $("#mode").textContent = LABEL[m] || m.toUpperCase(); }
+  function tick() {
+    const d = new Date();
+    $("#clock").textContent = pad(d.getHours()) + ":" + pad(d.getMinutes());
+    $("#date").textContent = d.toLocaleDateString("pt-BR", { weekday: "short", day: "numeric", month: "short" });
+    checkAlarms();
+  }
+
+  // ---------- orbe ----------
+  const cv = $("#orb"), cx = cv.getContext("2d");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const loops = Array.from({ length: 11 }, (_, i) => ({ ax: Math.random() * Math.PI, ay: Math.random() * Math.PI, sp: 0.15 + Math.random() * 0.35, ph: Math.random() * 6.28, f: 2 + (i % 4), hue: i % 3 }));
+  let smooth = 0;
+  function draw(ts) {
+    const W = cv.width, C = W / 2, t = ts / 1000;
+    const target = { idle: 0.08, listening: 0.55, thinking: 0.35, scanning: 0.45, speaking: 0.4 + level * 0.6 }[mode] ?? 0.1;
+    smooth += (target - smooth) * 0.08;
+    cx.clearRect(0, 0, W, W);
+    const g = cx.createRadialGradient(C, C, 10, C, C, C * 0.95);
+    g.addColorStop(0, "rgba(88,180,255,0.20)"); g.addColorStop(0.5, "rgba(60,110,255,0.07)"); g.addColorStop(1, "rgba(60,110,255,0)");
+    cx.fillStyle = g; cx.fillRect(0, 0, W, W);
+    cx.globalCompositeOperation = "lighter";
+    const R = W * 0.30;
+    for (const L of loops) {
+      const rx = L.ax + t * L.sp * (reduce ? 0 : 1), ry = L.ay + t * L.sp * 0.7 * (reduce ? 0 : 1);
+      const cxr = Math.cos(rx), sxr = Math.sin(rx), cyr = Math.cos(ry), syr = Math.sin(ry);
+      cx.beginPath();
+      for (let i = 0; i <= 160; i++) {
+        const a = i / 160 * Math.PI * 2;
+        const wob = 1 + Math.sin(a * L.f + t * 2 + L.ph) * (0.03 + smooth * 0.12) + Math.sin(a * 7 - t * 3) * smooth * 0.05;
+        const x = Math.cos(a) * R * wob, y = Math.sin(a) * R * wob;
+        const y1 = y * cxr, z1 = y * sxr;
+        const x2 = x * cyr + z1 * syr, z2 = -x * syr + z1 * cyr;
+        const p = 1 / (1 - z2 / (W * 1.4));
+        i ? cx.lineTo(C + x2 * p, C + y1 * p) : cx.moveTo(C + x2 * p, C + y1 * p);
+      }
+      const col = L.hue === 0 ? "88,180,255" : L.hue === 1 ? "110,140,255" : "150,200,255";
+      cx.strokeStyle = `rgba(${col},0.10)`; cx.lineWidth = 9; cx.stroke();
+      cx.strokeStyle = `rgba(${col},${0.55 + smooth * 0.4})`; cx.lineWidth = 1.6; cx.stroke();
+    }
+    const cr = W * (0.035 + smooth * 0.02);
+    const k = cx.createRadialGradient(C, C, 0, C, C, cr * 3);
+    k.addColorStop(0, "rgba(220,240,255,0.9)"); k.addColorStop(0.3, "rgba(88,180,255,0.6)"); k.addColorStop(1, "rgba(88,180,255,0)");
+    cx.fillStyle = k; cx.beginPath(); cx.arc(C, C, cr * 3, 0, 6.29); cx.fill();
+    for (let i = 0; i < 40; i++) { const a = i * 2.4 + t * 0.1, r = R * (1.15 + (i % 7) * 0.06); cx.fillStyle = "rgba(140,200,255,0.5)"; cx.fillRect(C + Math.cos(a) * r, C + Math.sin(a * 1.1) * r * 0.9, 2, 2); }
+    cx.globalCompositeOperation = "source-over";
+    if (mode === "speaking") level = Math.max(0, level * 0.9);
+    if (!reduce) requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+
+  // ---------- voz ----------
+  let ptVoice = null;
+  const pickVoice = () => { const vs = window.speechSynthesis?.getVoices?.() || []; ptVoice = vs.find(v => v.lang === "pt-BR" && /google|natural|francisca|thalita|antonio|luciana/i.test(v.name)) || vs.find(v => v.lang === "pt-BR") || vs.find(v => /^pt/i.test(v.lang)) || null; };
+  if (window.speechSynthesis) { pickVoice(); speechSynthesis.onvoiceschanged = pickVoice; }
+  const clean = (t) => String(t).replace(/\*\*|__|`|#+\s/g, "").trim();
+  function say(text) {
+    text = clean(text);
+    const cap = $("#caption"); cap.classList.remove("dim"); cap.textContent = text;
+    setMode("speaking");
+    return new Promise((resolve) => {
+      const fallback = () => { const ms = Math.min(9000, 1200 + text.length * 55); const iv = setInterval(() => level = 0.4 + Math.random() * 0.6, 120); setTimeout(() => { clearInterval(iv); resolve(); }, ms); };
+      if (!ttsOn || !window.speechSynthesis) return fallback();
+      try {
+        const u = new SpeechSynthesisUtterance(text.slice(0, 600));
+        u.lang = "pt-BR"; if (ptVoice) u.voice = ptVoice; u.rate = 1.05;
+        let done = false; const iv = setInterval(() => { if (speechSynthesis.speaking) level = 0.35 + Math.random() * 0.65; }, 110);
+        const fin = () => { if (!done) { done = true; clearInterval(iv); resolve(); } };
+        u.onboundary = () => level = 1; u.onend = fin; u.onerror = fin;
+        setTimeout(fin, 4000 + text.length * 90);
+        speechSynthesis.speak(u);
+      } catch (e) { fallback(); }
+    });
+  }
+  function stopTalk() { running++; try { speechSynthesis.cancel(); } catch (e) {} }
+
+  // ---------- cartões ----------
+  const ICON = {
+    clima: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="9" r="3"/><path d="M8 2v2M2 9h2M3.8 4.8l1.4 1.4M14 18h5a3 3 0 0 0 0-6 5 5 0 0 0-9.6 1.5A3 3 0 0 0 10 19"/></svg>',
+    agenda: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',
+    email: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>',
+    news: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/></svg>',
+    fin: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg>',
+    rem: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M5 3 2 6M19 3l3 3"/></svg>',
+  };
+  const head = (icon, eyebrow, title, pill, warn) => `<div class="hd"><span class="ic">${ICON[icon]}</span><div style="min-width:0"><div class="eyebrow">${esc(eyebrow)}</div><h3>${esc(title)}</h3></div>${pill ? `<span class="pill${warn ? " warn" : ""}">${esc(pill)}</span>` : ""}</div>`;
+  const srcLine = (fonte, url) => { const u = safeUrl(url); return `<div class="src"><span>${esc(fonte || "")}</span>${u ? `<a href="${esc(u)}" target="_blank" rel="noopener">abrir ↗</a>` : ""}</div>`; };
+
+  function buildSegments() {
+    const b = state.briefing, segs = [];
+    const now = new Date(), h = now.getHours();
+    const sauda = h < 12 ? "Bom dia" : h < 18 ? "Boa tarde" : "Boa noite";
+    const dia = now.toLocaleDateString("pt-BR", { weekday: "long", day: "numeric", month: "long" });
+    const isToday = b && b.data === localISO(now).slice(0, 10);
+    segs.push({ id: "abertura", speak: `${sauda}, ${state.profile.name || ""}. Hoje é ${dia}, ${now.getHours()} e ${pad(now.getMinutes())}.` + (!b ? " Não consegui buscar o briefing agora." : !isToday ? " Não consegui atualizar o briefing, então vou usar o mais recente que tenho." : "") });
+    if (b?.clima) {
+      const c = b.clima;
+      segs.push({ id: "clima", speak: c.fala || `Em ${b.cidade}, ${c.condicao}, máxima de ${c.max} graus.`,
+        html: `<div class="card big">${head("clima", "Previsão · " + (b.cidade || ""), c.condicao || "Clima", c.chuva != null ? c.chuva + "% chuva" : "")}<div class="wx"><div class="temp">${esc(c.max)}°</div><div><p style="margin:0">${esc(c.resumo || "")}</p><div class="meta"><span>MÍN ${esc(c.min)}°</span><span>MÁX ${esc(c.max)}°</span></div></div></div>${srcLine(c.fonte, c.url)}</div>` });
+    }
+    const ag = b?.agenda;
+    if (ag?.conectado) segs.push({ id: "agenda", speak: ag.fala, html: `<div class="card">${head("agenda", "Agenda · Hoje", ag.itens?.length ? ag.itens.length + " compromisso(s)" : "Agenda livre", "")}${ag.itens?.length ? `<ul class="lst">${ag.itens.map(i => `<li><span><span class="t">${esc(i.hora || "")}</span>${esc(i.titulo)}</span></li>`).join("")}</ul>` : "<p>Nenhum compromisso hoje.</p>"}</div>` });
+    const open = state.reminders.filter(r => !r.feito).sort((a, b) => (a.quando || "9") < (b.quando || "9") ? -1 : 1);
+    if (open.length) segs.push({ id: "lembretes", speak: `Você tem ${open.length} lembrete${open.length > 1 ? "s" : ""}: ` + open.slice(0, 3).map(r => r.texto + (r.quando ? ", " + fmtWhen(r.quando) : "")).join("; ") + ".",
+      html: `<div class="card">${head("rem", "Lembretes", open.length + " pendente" + (open.length > 1 ? "s" : ""), "")}<ul class="lst">${open.slice(0, 5).map(r => `<li><span>${r.quando ? `<span class="t">${esc(fmtWhen(r.quando))}</span>` : ""}${esc(r.texto)}</span></li>`).join("")}</ul></div>` });
+    const f = state.financas;
+    if (f && !f.semMes && f.mesNome) {
+      const hoje = new Date().getDate(), mesN = f.mesNome.toLowerCase();
+      const venc = (f.cartoes || []).filter(c => c.fatura > 0 && Number(c.vencimento) >= hoje).sort((a, b) => Number(a.vencimento) - Number(b.vencimento))[0];
+      let fala = `Nas finanças de ${mesN}, as faturas somam ${falaReais(f.faturas)}` + (f.renda ? ` e a sobra estimada é de ${falaReais(f.sobra)}.` : ".");
+      if (venc) fala += ` A fatura do ${venc.nome}, de ${falaReais(venc.fatura)}, vence dia ${venc.vencimento}.`;
+      if (f.estourados?.length) fala += ` Atenção: ${f.estourados.map(e => e.nome).join(" e ")} ${f.estourados.length > 1 ? "passaram" : "passou"} do orçamento.`;
+      if (f.renda && f.sobra < 0) fala += " O mês está no vermelho, vale segurar os gastos.";
+      segs.push({ id: "financas", speak: fala,
+        html: `<div class="card">${head("fin", "Finanças · " + f.mesNome, f.renda ? "Sobra estimada " + brl(f.sobra) : "Faturas " + brl(f.faturas), f.comprometido != null ? f.comprometido + "% da renda" : "", f.comprometido > 90)}
+          <ul class="fin-lst">${(f.cartoes || []).map(c => `<li><span>${esc(c.nome)}${c.vencimento ? `<span class="v">vence dia ${esc(c.vencimento)}</span>` : ""}</span><b>${esc(brl(c.fatura))}</b></li>`).join("")}
+          ${f.outras ? `<li><span>Outras parcelas</span><b>${esc(brl(f.outras))}</b></li>` : ""}</ul>
+          ${f.estourados?.length ? `<p>Acima do orçamento: ${esc(f.estourados.map(e => e.nome).join(", "))}.</p>` : ""}</div>` });
+    }
+    for (const [i, n] of (b?.noticias || []).entries()) {
+      segs.push({ id: "news" + i, speak: n.fala || `${n.tema}: ${n.titulo}.`,
+        html: `<div class="card">${head("news", "Radar · Notícias", n.tema || "Notícia", "")}<div class="banner">${esc(n.fonte || n.tema || "")}</div><h3>${esc(n.titulo)}</h3>${n.resumo ? `<p>${esc(n.resumo)}</p>` : ""}${srcLine(n.fonte, n.url)}</div>` });
+    }
+    segs.push({ id: "fim", speak: b?.encerramento || "Esse é o seu resumo. Estou por aqui se precisar." });
+    return segs;
+  }
+
+  const scanHTML = () => `<div class="card scan"><div class="eyebrow">Briefing matinal</div><h3>Atualizando o radar…</h3><p>Consolidando o que importa para o seu dia.</p><div class="chips"><span>CLIMA</span><span>LEMBRETES</span><span>NOTÍCIAS</span></div></div>`;
+  function showSpot(html) { const s = $("#spot"); s.innerHTML = html; s.classList.remove("off"); }
+  function hideSpot() { $("#spot").classList.add("off"); }
+  function dockCard(seg) {
+    const tmp = document.createElement("div"); tmp.innerHTML = seg.html.trim();
+    const el = tmp.firstElementChild; el.tabIndex = 0; el.dataset.id = seg.id;
+    el.onclick = el.onkeydown = (e) => { if (e.type === "keydown" && e.key !== "Enter") return; if (e.target.closest("a")) return; replay(seg); };
+    $("#dock").append(el); el.scrollIntoView({ behavior: reduce ? "auto" : "smooth", inline: "nearest", block: "nearest" });
+  }
+  async function replay(seg) {
+    stopTalk(); const my = running;
+    document.querySelectorAll("#dock .card").forEach(c => c.classList.toggle("on", c.dataset.id === seg.id));
+    showSpot(seg.html); await say(seg.speak); if (my !== running) return;
+    hideSpot(); document.querySelectorAll("#dock .card.on").forEach(c => c.classList.remove("on")); setMode("idle");
+  }
+
+  async function briefing() {
+    stopTalk(); const my = running;
+    $("#dock").innerHTML = ""; $("#hint").hidden = true;
+    setMode("scanning"); showSpot(scanHTML());
+    const cap = $("#caption"); cap.classList.add("dim"); cap.textContent = "Atualizando o radar de notícias…";
+    const precisa = !state.briefing || state.briefing.data !== localISO(new Date()).slice(0, 10);
+    const busca = precisa ? carregarBriefing() : Promise.resolve();
+    const chips = [...document.querySelectorAll("#spot .chips span")];
+    for (const c of chips) { await sleep(reduce ? 50 : 380); if (my !== running) return; c.classList.add("lit"); }
+    await busca; await sleep(300); if (my !== running) return;
+    for (const seg of buildSegments()) {
+      if (my !== running) return;
+      if (seg.html) showSpot(seg.html); else hideSpot();
+      await say(seg.speak); if (my !== running) return;
+      if (seg.html) { hideSpot(); await sleep(reduce ? 0 : 250); dockCard(seg); }
+    }
+    hideSpot(); setMode("idle");
+  }
+
+  // ---------- reconhecimento de voz ----------
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  let rec = null;
+  function micHint() { const h = $("#hint"); h.textContent = "O microfone direto não funciona neste navegador. Toque no campo e use o microfone do teclado (celular) ou Win + H (Windows) para ditar."; h.hidden = false; $("#q").focus(); }
+  $("#mic").onclick = () => {
+    if (rec) { rec.stop(); return; }
+    if (!SR) return micHint();
+    stopTalk();
+    try {
+      rec = new SR(); rec.lang = "pt-BR"; rec.interimResults = true;
+      let fin = "";
+      rec.onresult = (e) => { let tmp = ""; for (const r of e.results) { if (r.isFinal) fin = r[0].transcript; else tmp += r[0].transcript; } $("#caption").classList.add("dim"); $("#caption").textContent = fin || tmp; };
+      rec.onerror = (e) => { if (e.error !== "no-speech" && e.error !== "aborted") micHint(); };
+      rec.onend = () => { $("#mic").classList.remove("on"); rec = null; if (mode === "listening") setMode("idle"); if (fin.trim()) handle(fin.trim()); };
+      rec.start(); $("#mic").classList.add("on"); setMode("listening");
+      $("#caption").classList.add("dim"); $("#caption").textContent = "Ouvindo…";
+    } catch (e) { rec = null; micHint(); }
+  };
+
+  // ---------- conversa (API da Anthropic, via servidor) ----------
+  function log(role, text) {
+    const L = $("#log"); L.querySelector(".none")?.remove();
+    const d = document.createElement("div"); d.className = "m" + (role === "user" ? " u" : ""); d.textContent = text; L.append(d);
+  }
+  function systemPrompt() {
+    const rem = state.reminders.map(r => `- [${r.id}] ${r.texto}${r.quando ? " (quando: " + r.quando + ")" : ""}${r.feito ? " [concluído]" : ""}`).join("\n") || "(nenhum)";
+    const notes = state.notes.map(n => `- [${n.id}] ${n.texto}`).join("\n") || "(nenhuma)";
+    const b = state.briefing ? JSON.stringify({ data: state.briefing.data, cidade: state.briefing.cidade, clima: state.briefing.clima && { condicao: state.briefing.clima.condicao, min: state.briefing.clima.min, max: state.briefing.clima.max, chuva: state.briefing.clima.chuva }, noticias: (state.briefing.noticias || []).map(n => ({ tema: n.tema, titulo: n.titulo, fonte: n.fonte })) }) : "(nenhum)";
+    return `Você é ${state.profile.assistant || "Atlas"}, assistente pessoal de voz de ${state.profile.name || "o usuário"}, no estilo do J.A.R.V.I.S.: educado, direto, levemente espirituoso.
+Responda em português do Brasil, curto e falado (1 a 3 frases), pois será lido em voz alta. Sem markdown, listas, emojis ou tabelas.
+Agora: ${new Date().toLocaleString("pt-BR", { weekday: "long", day: "numeric", month: "long", year: "numeric", hour: "2-digit", minute: "2-digit" })} (ISO local ${localISO(new Date())}).
+Use as ferramentas para criar, concluir e apagar lembretes e notas. Converta horários relativos para AAAA-MM-DDTHH:MM local. Confirme o que fez em uma frase.
+Você não navega na internet. Para clima e notícias use só o briefing abaixo. Agenda e e-mail ainda não estão conectados.
+Finanças do mês atual (do painel de finanças; valores em reais): ${state.financas ? JSON.stringify({ mes: state.financas.mesNome, renda: state.financas.renda, faturas: state.financas.faturas, outras_parcelas: state.financas.outras, sobra: state.financas.sobra, comprometido_pct: state.financas.comprometido, cartoes: state.financas.cartoes, acima_do_orcamento: state.financas.estourados, metas: state.financas.metas, proximo_mes: state.financas.proximoMes }) : "(painel de finanças ainda sem planilha)"}
+Para registrar um gasto use lancar_gasto. Compra no cartão: informe o cartão e, se houver, as parcelas. Pix ou dinheiro: informe a categoria do orçamento (por exemplo Supermercado, Combustível, Jantar/Comer Fora). Se não souber se foi no cartão ou em qual, pergunte antes de lançar. Ao falar valores, use reais arredondados e por extenso quando soar melhor.
+Briefing: ${b}
+Lembretes:
+${rem}
+Notas:
+${notes}`;
+  }
+  const TOOLS = [
+    { name: "criar_lembrete", description: "Cria um lembrete.", input_schema: { type: "object", properties: { texto: { type: "string" }, quando: { type: "string", description: "AAAA-MM-DDTHH:MM local, opcional" } }, required: ["texto"] },
+      run: (i) => { const t = String(i.texto || "").slice(0, 300); if (!t) throw new Error("texto vazio"); const q = i.quando && !isNaN(new Date(String(i.quando))) ? String(i.quando).slice(0, 16) : null; const r = { id: uid(), texto: t, quando: q, feito: false }; state.reminders.push(r); saveRem(); return r; } },
+    { name: "concluir_lembrete", description: "Marca um lembrete como concluído pelo id.", input_schema: { type: "object", properties: { id: { type: "string" } }, required: ["id"] },
+      run: (i) => { const r = state.reminders.find(x => x.id === String(i.id)); if (!r) throw new Error("não encontrado"); r.feito = true; saveRem(); return "ok"; } },
+    { name: "apagar_lembrete", description: "Apaga um lembrete pelo id.", input_schema: { type: "object", properties: { id: { type: "string" } }, required: ["id"] },
+      run: (i) => { const n = state.reminders.length; state.reminders = state.reminders.filter(x => x.id !== String(i.id)); if (n === state.reminders.length) throw new Error("não encontrado"); saveRem(); return "ok"; } },
+    { name: "salvar_nota", description: "Guarda uma nota de texto.", input_schema: { type: "object", properties: { texto: { type: "string" } }, required: ["texto"] },
+      run: (i) => { const t = String(i.texto || "").slice(0, 1000); if (!t) throw new Error("texto vazio"); const n = { id: uid(), texto: t }; state.notes.push(n); saveNotes(); return n; } },
+    { name: "apagar_nota", description: "Apaga uma nota pelo id.", input_schema: { type: "object", properties: { id: { type: "string" } }, required: ["id"] },
+      run: (i) => { state.notes = state.notes.filter(x => x.id !== String(i.id)); saveNotes(); return "ok"; } },
+    { name: "lancar_gasto", description: "Registra um gasto no painel de finanças. Compra no cartão: passe cartao (ex.: Nubank, Banco do Brasil) e, se houver, parcelas. Pix ou dinheiro: passe categoria do orçamento (ex.: Supermercado, Combustível). Retorna a confirmação e o novo resumo.", input_schema: { type: "object", properties: { descricao: { type: "string" }, valor: { type: "number", description: "valor total em reais" }, cartao: { type: "string" }, parcelas: { type: "integer" }, categoria: { type: "string" } }, required: ["valor"] },
+      run: async (i) => { const p = await painelFin(); const r = await p.lancar(i || {}); guardarResumoFin(r.resumo); return r.mensagem + (r.resumo && r.resumo.renda ? " Sobra estimada do mês agora: " + brl(r.resumo.sobra) + "." : ""); } },
+    { name: "abrir_financas", description: "Abre o painel de finanças na tela.", input_schema: { type: "object", properties: {} }, run: () => { setTimeout(abrirFinancas, 50); return "painel de finanças aberto; responda só com uma frase curta"; } },
+    { name: "iniciar_briefing", description: "Mostra e narra o briefing completo do dia. Use quando pedirem resumo do dia, notícias ou briefing.", input_schema: { type: "object", properties: {} },
+      run: () => { setTimeout(briefing, 50); return "briefing iniciado; responda só 'Claro.'"; } },
+  ];
+  const toolDefs = TOOLS.map(({ name, description, input_schema }) => ({ name, description, input_schema }));
+  const ERR = { limite: "Muitos pedidos seguidos. Tente de novo em instantes.", limite_diario: "Chegamos ao limite de conversas de hoje. Amanhã eu volto a responder.", sem_chave: "A chave da API ainda não foi configurada no servidor.", senha: "Preciso que você entre com a senha." };
+
+  async function conversar(text) {
+    const msgs = [...turns.slice(-10), { role: "user", content: text }];
+    let briefingIniciado = false;
+    for (let rodada = 0; rodada < 4; rodada++) {
+      const r = await api("/api/chat", { method: "POST", body: JSON.stringify({ system: systemPrompt(), messages: msgs, tools: toolDefs }) });
+      const texto = (r.content || []).filter(b => b.type === "text").map(b => b.text).join(" ").trim();
+      if (r.stop_reason !== "tool_use") return { texto, briefingIniciado };
+      msgs.push({ role: "assistant", content: r.content });
+      const resultados = [];
+      for (const b of r.content.filter(b => b.type === "tool_use")) {
+        const t = TOOLS.find(x => x.name === b.name);
+        if (b.name === "iniciar_briefing") briefingIniciado = true;
+        try { resultados.push({ type: "tool_result", tool_use_id: b.id, content: JSON.stringify(t ? await t.run(b.input || {}) : "ferramenta desconhecida") }); }
+        catch (e) { resultados.push({ type: "tool_result", tool_use_id: b.id, content: "erro: " + e.message, is_error: true }); }
+      }
+      msgs.push({ role: "user", content: resultados });
+    }
+    return { texto: "Pronto.", briefingIniciado };
+  }
+
+  async function handle(text) {
+    text = text.trim(); if (!text) return;
+    $("#q").value = ""; $("#hint").hidden = true;
+    log("user", text);
+    if (/^(bom dia|boa tarde|boa noite|briefing|resumo do dia)[\s!.,]*(atlas|jarvis)?[\s!.]*$/i.test(text)) { briefing(); return; }
+    if (busy) return;
+    stopTalk(); busy = true; setMode("thinking");
+    const cap = $("#caption"); cap.classList.add("dim"); cap.textContent = "Processando…";
+    try {
+      const { texto, briefingIniciado } = await conversar(text);
+      const ans = clean(texto || "Feito.");
+      turns.push({ role: "user", content: text }, { role: "assistant", content: ans });
+      log("bot", ans);
+      if (!briefingIniciado) { await say(ans); setMode("idle"); }
+    } catch (e) {
+      const m = ERR[e?.code] || "Tive um problema de conexão. Tente de novo.";
+      log("bot", m); if (e?.code !== "senha") await say(m); setMode("idle");
+    } finally { busy = false; }
+  }
+  $("#form").onsubmit = (e) => { e.preventDefault(); handle($("#q").value); };
+  $("#brief").onclick = () => briefing();
+  $("#refresh").onclick = async () => { toast("Atualizando briefing…"); await carregarBriefing(true); toast("Briefing atualizado"); };
+
+  // ---------- painel ----------
+  const openD = (o) => { $("#drawer").classList.toggle("open", o); $("#scrim").hidden = !o; };
+  $("#menu").onclick = () => openD(true); $("#close").onclick = $("#scrim").onclick = () => openD(false);
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") { openD(false); stopTalk(); hideSpot(); setMode("idle"); } });
+
+  const saveRem = () => { store.set("lembretes", state.reminders); renderRem(); };
+  const saveNotes = () => { store.set("notas", state.notes); renderNotes(); };
+  function renderRem() {
+    const ul = $("#rl"); ul.textContent = "";
+    for (const r of [...state.reminders].sort((a, b) => (a.feito - b.feito) || ((a.quando || "9") < (b.quando || "9") ? -1 : 1))) {
+      const li = document.createElement("li"); if (r.feito) li.className = "done";
+      const cb = document.createElement("input"); cb.type = "checkbox"; cb.checked = !!r.feito; cb.onchange = () => { r.feito = cb.checked; saveRem(); };
+      const tx = document.createElement("div"); tx.className = "tx"; tx.textContent = r.texto;
+      if (r.quando) { const w = document.createElement("span"); w.className = "w" + (!r.feito && new Date(r.quando) < new Date() ? " late" : ""); w.textContent = fmtWhen(r.quando); tx.append(w); }
+      const x = document.createElement("button"); x.className = "x"; x.textContent = "×"; x.setAttribute("aria-label", "Apagar"); x.onclick = () => { state.reminders = state.reminders.filter(i => i.id !== r.id); saveRem(); };
+      li.append(cb, tx, x); ul.append(li);
+    }
+    $("#rc").textContent = state.reminders.filter(r => !r.feito).length; $("#rn").hidden = state.reminders.length > 0;
+  }
+  function renderNotes() {
+    const ul = $("#nl"); ul.textContent = "";
+    for (const n of [...state.notes].reverse()) {
+      const li = document.createElement("li"); const d = document.createElement("span"); d.textContent = "•"; d.style.color = "var(--accent)";
+      const tx = document.createElement("div"); tx.className = "tx"; tx.textContent = n.texto;
+      const x = document.createElement("button"); x.className = "x"; x.textContent = "×"; x.setAttribute("aria-label", "Apagar"); x.onclick = () => { state.notes = state.notes.filter(i => i.id !== n.id); saveNotes(); };
+      li.append(d, tx, x); ul.append(li);
+    }
+    $("#nc").textContent = state.notes.length; $("#nn").hidden = state.notes.length > 0;
+  }
+  function renderProfile() {
+    const a = (state.profile.assistant || "Atlas").toUpperCase();
+    $("#asst-name").textContent = a; $("#d-name").textContent = a; $("#q").placeholder = "Fale com o " + (state.profile.assistant || "Atlas") + "…";
+    $("#cfg-name").value = state.profile.name || ""; $("#cfg-asst").value = state.profile.assistant || ""; $("#waNum").value = state.profile.whatsapp || "";
+  }
+  $("#cfg").onsubmit = (e) => { e.preventDefault(); state.profile = { ...state.profile, name: $("#cfg-name").value.trim() || "Alex", assistant: $("#cfg-asst").value.trim() || "Atlas" }; salvarPerfil(); renderProfile(); toast("Ajustes salvos"); };
+
+  $("#exp").onclick = () => {
+    const blob = new Blob([JSON.stringify({ lembretes: state.reminders, notas: state.notes, perfil: state.profile, financas: { xlsx: (() => { try { return localStorage.getItem("atlas.fin.xlsx"); } catch (e) { return null; } })(), nome: store.get("fin.nome", null), resumo: state.financas } }, null, 2)], { type: "application/json" });
+    const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "atlas-backup.json"; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+  };
+  $("#imp").onclick = () => $("#impf").click();
+  $("#impf").onchange = async (e) => {
+    try { const d = JSON.parse(await e.target.files[0].text()); if (Array.isArray(d.lembretes)) state.reminders = d.lembretes; if (Array.isArray(d.notas)) state.notes = d.notas; if (d.perfil) state.profile = d.perfil; if (d.financas?.xlsx) { await finSalvar(d.financas.xlsx, d.financas.nome); if (d.financas.resumo) { state.financas = d.financas.resumo; finSalvarResumo(d.financas.resumo); renderFinInfo(); } } saveRem(); saveNotes(); store.set("perfil", state.profile); renderProfile(); toast("Backup importado"); }
+    catch (x) { toast("Arquivo de backup inválido"); }
+  };
+
+  let tt; function toast(t) { const el = $("#toast"); el.textContent = t; el.hidden = false; clearTimeout(tt); tt = setTimeout(() => el.hidden = true, 6000); }
+  function checkAlarms() {
+    const now = Date.now();
+    for (const r of state.reminders) {
+      if (r.feito || !r.quando || fired.has(r.id)) continue;
+      const t = new Date(r.quando).getTime();
+      if (t <= now) { fired.add(r.id); if (now - t < 10 * 60 * 1000) {
+        toast("Lembrete: " + r.texto);
+        try { if (Notification?.permission === "granted") new Notification("Atlas", { body: r.texto, icon: "/icon-192.png" }); } catch (e) {}
+        if (mode === "idle") say((state.profile.name ? state.profile.name + ", " : "") + "lembrete: " + r.texto).then(() => setMode("idle"));
+      } }
+    }
+  }
+  document.addEventListener("click", function pedirNotif() { try { if (window.Notification && Notification.permission === "default") Notification.requestPermission(); } catch (e) {} document.removeEventListener("click", pedirNotif); }, { once: true });
+
+  function salvarPerfil() { store.set("perfil", state.profile); }
+  async function finCarregar() { let x = null; try { x = localStorage.getItem("atlas.fin.xlsx"); } catch (e) {} return x ? { xlsx: x, nome: store.get("fin.nome", "FINANÇAS.xlsx") } : null; }
+  async function finSalvar(b64, nome) { try { localStorage.setItem("atlas.fin.xlsx", b64); } catch (e) { throw new Error("sem espaço no navegador"); } store.set("fin.nome", nome || "FINANÇAS.xlsx"); }
+  function finSalvarResumo(r) { store.set("financas", r); }
+  function finBaixar(blob, nome) { const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = nome; document.body.append(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 2000); }
+  // ---------- finanças ----------
+  const brl = (v) => (Number(v) || 0).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+  const falaReais = (v) => { const n = Math.round(Math.abs(Number(v) || 0)); return (v < 0 ? "menos " : "") + n + (n === 1 ? " real" : " reais"); };
+  let finPronto = null, finResolver = null, finUltimo = "";
+  function finFrameCarregar() {
+    const fr = $("#finFrame");
+    if (!fr.getAttribute("src")) { finPronto = new Promise(r => finResolver = r); fr.src = FIN_URL; }
+    return finPronto;
+  }
+  function abrirFinancas() { finFrameCarregar(); openD(false); stopTalk(); hideSpot(); setMode("idle"); $("#finWrap").classList.remove("off"); }
+  function fecharFinancas() { $("#finWrap").classList.add("off"); renderFinInfo(); }
+  async function painelFin() {
+    await Promise.race([finFrameCarregar(), sleep(25000)]);
+    let p = null; try { p = $("#finFrame").contentWindow.atlasPainel; } catch (e) {}
+    if (!p) throw new Error("O painel de finanças não abriu. Tente abrir Finanças pelo botão.");
+    if (!p.pronto()) throw new Error("Ainda não há planilha no painel de finanças. Abra Finanças e importe sua planilha .xlsx.");
+    return p;
+  }
+  function renderFinInfo() {
+    const f = state.financas, el = $("#finInfo"); if (!el) return;
+    el.textContent = f && f.mesNome ? `${f.mesNome}: faturas ${brl(f.faturas)}` + (f.renda ? ` · sobra estimada ${brl(f.sobra)}` : "") : "Abra Finanças e importe sua planilha .xlsx uma vez.";
+  }
+  function guardarResumoFin(r) {
+    state.financas = r; renderFinInfo();
+    if (!r) return;
+    const chave = JSON.stringify({ ...r, atualizado: 0 });
+    if (chave === finUltimo) return;
+    finUltimo = chave; finSalvarResumo(r);
+  }
+  window.atlasFin = {
+    carregar: () => finCarregar(),
+    salvar: (b64, nome) => finSalvar(b64, nome),
+    resumo: (r) => guardarResumoFin(r),
+    baixar: (blob, nome) => finBaixar(blob, nome),
+    fechar: () => fecharFinancas(),
+    pronto: () => { if (finResolver) finResolver(); },
+  };
+  $("#finBtn").onclick = abrirFinancas;
+  $("#finOpen2").onclick = abrirFinancas;
+
+  // ---------- WhatsApp ----------
+  function waNumero() {
+    let d = String($("#waNum").value || state.profile.whatsapp || "").replace(/\D/g, "");
+    if (d.length === 10 || d.length === 11) d = "55" + d;
+    return /^55\d{10,11}$/.test(d) ? d : "";
+  }
+  function textoResumo() {
+    const b = state.briefing, f = state.financas, linhas = [];
+    linhas.push(`*Resumo do ${state.profile.assistant || "Atlas"} · ${new Date().toLocaleDateString("pt-BR", { weekday: "long", day: "numeric", month: "long" })}*`);
+    if (b?.clima) linhas.push(`\n☁ *Clima em ${b.cidade || ""}:* ${b.clima.condicao}, ${b.clima.min}° a ${b.clima.max}°` + (b.clima.chuva != null ? `, ${b.clima.chuva}% de chuva` : ""));
+    if (f && f.mesNome) {
+      linhas.push(`\n💳 *Finanças de ${f.mesNome.toLowerCase()}:* faturas ${brl(f.faturas)}` + (f.renda ? `, sobra estimada ${brl(f.sobra)}` : ""));
+      for (const c of f.cartoes || []) linhas.push(`• ${c.nome}: ${brl(c.fatura)}${c.vencimento ? ` (vence dia ${c.vencimento})` : ""}`);
+    }
+    const open = state.reminders.filter(r => !r.feito);
+    if (open.length) { linhas.push("\n⏰ *Lembretes:*"); for (const r of open.slice(0, 6)) linhas.push(`• ${r.texto}${r.quando ? " (" + fmtWhen(r.quando) + ")" : ""}`); }
+    if (b?.noticias?.length) { linhas.push("\n📰 *Notícias:*"); for (const n of b.noticias) linhas.push(`• ${n.tema}: ${n.titulo}`); }
+    return linhas.join("\n");
+  }
+  $("#waSend").onclick = () => {
+    const n = waNumero();
+    if (!n) { toast("Esse número não parece válido. Use DDD + 9 dígitos, por exemplo 69 99999-9999."); openD(true); $("#waNum").focus(); return; }
+    const num = $("#waNum").value.trim();
+    if (num && num !== state.profile.whatsapp) { state.profile = { ...state.profile, whatsapp: num }; salvarPerfil(); }
+    window.open("https://wa.me/" + n + "?text=" + encodeURIComponent(textoResumo()), "_blank", "noopener");
+  };
+
+  // ---------- início ----------
+  function iniciar() { carregarBriefing(); }
+  setMode("idle"); renderRem(); renderNotes(); renderProfile(); renderFinInfo(); tick(); setInterval(tick, 15000);
+  if (!senha) pedirSenha(); else api("/api/ping").then(iniciar).catch(() => { $("#sync").textContent = "offline"; });
+  if ("serviceWorker" in navigator) navigator.serviceWorker.register("/sw.js").catch(() => {});
+})();
+</script>
+</body>
+</html>
